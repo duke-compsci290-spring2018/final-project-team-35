@@ -3,7 +3,7 @@
     {
         "name": "Duke Chapel",
         "address": "401 Chapel Dr, Durham, NC 27708",
-        "coordinates": {lat:36.0019125, lng:-78.9403615},
+        "coordinates": "{lat:36.0019125, lng:-78.9403615}",
         "Description": "Magnificent chapel built in gothic architecutre serving as the main building at Duke University",
         "categories": [
             "Indoor",
@@ -14,7 +14,7 @@
     {
         "name": "Perkins Library",
         "address": "411 Chapel Drive Durham, NC 27708",
-        "coordinates": {lat:36.0029782, lng:-78.93832629999997},
+        "coordinates": "{lat:36.0029782, lng:-78.93832629999997}",
         "Description": "Home for many students who enjoy studying in a public place",
         "categories": [
             "Indoor",
@@ -26,7 +26,7 @@
       {
         "name": "Nasher Museum of Art",
         "address": "2001 Campus Dr, Durham, NC 27705",
-        "coordinates": {lat:35.9990359, lng:-78.92903590000003},
+        "coordinates": "{lat:35.9990359, lng:-78.92903590000003}",
         "Description": "Art museum with collections of creative and amazing art works",
         "categories": [
             "Indoor",
@@ -39,7 +39,7 @@
     {
         "name": "Devil's Bistro",
         "address": "1917 Yearby Ave Durham, NC 27705",
-        "coordinates": {lat:36.0041596, lng:78.92901740000002},
+        "coordinates": "{lat:36.0041596, lng:78.92901740000002}",
         "Description": "Dining place for students living at central campus",
         "categories": [
             "Indoor",
@@ -52,7 +52,7 @@
     {
         "name": "Brodhead Center",
         "address": "402 Chapel Dr, Durham, NC 27710",
-        "coordinates": {lat:36.0011944, lng:-78.93991729999999},
+        "coordinates": "{lat:36.0011944, lng:-78.93991729999999}",
         "Description": "Recently renovated building that brings people together by dining, studying, and socializing",
         "categories": [
             "Indoor",
@@ -65,7 +65,7 @@
     {
         "name": "Duke Lemur Center",
         "address": "3705 Erwin Rd, Durham, NC 27705",
-        "coordinates": {lat:35.9944983, lng:-78.96085819999996},
+        "coordinates": "{lat:35.9944983, lng:-78.96085819999996}",
         "Description": "Place to see world's largest and most diverse collections of lemurs",
         "categories": [
             "Outdoor",
@@ -77,7 +77,7 @@
     {
         "name": "Sarah P. Duke Gardens",
         "address": "420 Anderson St, Durham, NC 27708",
-        "coordinates": {lat:36.0024617, lng:-78.93323529999998},
+        "coordinates": "{lat:36.0024617, lng:-78.93323529999998}",
         "Description": "55 acres large garden with full of flowers and a beautiful pond",
         "categories": [
             "Outdoor",
@@ -90,7 +90,7 @@
     {
         "name": "Baldwin Auditorium",
         "address": "1336 Campus Drive, Durham, NC 27705",
-        "coordinates": {lat:36.009034, lng:-78.91465240000002},
+        "coordinates": "{lat:36.009034, lng:-78.91465240000002}",
         "Description": "Classic Georgian auditorium where great musical performances happen",
         "categories": [
             "Indoor",
@@ -102,7 +102,7 @@
     {
         "name": "Cameron Indoor Stadium",
         "address": "115 Whitford Dr, Durham, NC 27705",
-        "coordinates": {lat:35.9979158, lng:-78.94236999999998},
+        "coordinates": "{lat:35.9979158, lng:-78.94236999999998}",
         "Description": "Home of Duke basketball and coach K, where all the passion is",
         "categories": [
             "Indoor",
@@ -114,7 +114,7 @@
         {
         "name": "Puppy Center",
         "address": "15 Circuit Dr, Durham, NC 27710",
-        "coordinates": {lat:36.0022589, lng:-78.9431601},
+        "coordinates": "{lat:36.0022589, lng:-78.9431601}",
         "Description": "Look at everybody's favorite, retriever puppies, Kyler and Ernie!",
         "categories": [
             "Indoor",
@@ -126,7 +126,7 @@
     {
         "name": "Wallace Wade Stadium",
         "address": "110 Frank Basset Dr, Durham, NC 27705",
-        "coordinates": {lat:36.0022589, lng:-78.9431601},
+        "coordinates": "{lat:36.0022589, lng:-78.9431601}",
         "Description": "Recently renovated football stadium which also holds the graduation ceremony at Duke",
         "categories": [
             "Outdoor",
@@ -134,6 +134,6 @@
             "Entertainment"
         ],
         "imgUrl": "/src/assets/wallace.jpeg"
-    },
+    }
     ]
 }

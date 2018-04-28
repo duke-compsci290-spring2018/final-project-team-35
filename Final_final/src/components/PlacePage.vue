@@ -16,7 +16,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-sm-6 col-md-4">
+      <div class="col-sm-6 col-md-4" v-for="item in data">
         <div class="thumbnail">
           <img src="/src/assets/Duke_01.png" alt="chapel">
           <div class="caption">
@@ -40,6 +40,7 @@
 </template>
 
 <script>
+var data = require('../assets/places.json');
 export default {
 }
 </script>
