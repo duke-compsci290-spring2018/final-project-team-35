@@ -1,0 +1,24 @@
+{
+  "places": [
+    {
+      "name": "Duke Chapel",
+      "address": "401 Chapel Dr, Durham, NC 27708",
+      "categories": [
+	"Outdoor",
+	"West Campus"
+      ],
+      "imgUrl": "/src/assets/Duke_Chapel.png"
+    },
+    {
+      "name": "Perkins Library",
+      "address": "amolang",
+      "categories": [
+	"Outdoor",
+	"Indoor",
+	"West Campus",
+	"Education"
+      ],
+      "imgUrl": "/src/assets/Perkins_Library.png"
+    }
+  ]
+}
