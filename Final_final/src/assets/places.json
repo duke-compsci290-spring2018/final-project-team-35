@@ -1,24 +1,139 @@
 {
-  "places": [
+    "places": [
     {
-      "name": "Duke Chapel",
-      "address": "401 Chapel Dr, Durham, NC 27708",
-      "categories": [
-	"Outdoor",
-	"West Campus"
-      ],
-      "imgUrl": "/src/assets/Duke_Chapel.png"
+        "name": "Duke Chapel",
+        "address": "401 Chapel Dr, Durham, NC 27708",
+        "coordinates": {lat:36.0019125, lng:-78.9403615},
+        "Description": "Magnificent chapel built in gothic architecutre serving as the main building at Duke University",
+        "categories": [
+            "Indoor",
+            "West Campus"
+        ],
+        "imgUrl": "/src/assets/chapel.png"
     },
     {
-      "name": "Perkins Library",
-      "address": "amolang",
-      "categories": [
-	"Outdoor",
-	"Indoor",
-	"West Campus",
-	"Education"
-      ],
-      "imgUrl": "/src/assets/Perkins_Library.png"
-    }
-  ]
+        "name": "Perkins Library",
+        "address": "411 Chapel Drive Durham, NC 27708",
+        "coordinates": {lat:36.0029782, lng:-78.93832629999997},
+        "Description": "Home for many students who enjoy studying in a public place",
+        "categories": [
+            "Indoor",
+            "West Campus",
+            "Education"
+        ],
+        "imgUrl": "/src/assets/Perkins_Library.jpeg"
+    },
+      {
+        "name": "Nasher Museum of Art",
+        "address": "2001 Campus Dr, Durham, NC 27705",
+        "coordinates": {lat:35.9990359, lng:-78.92903590000003},
+        "Description": "Art museum with collections of creative and amazing art works",
+        "categories": [
+            "Indoor",
+            "Central Campus",
+            "Education",
+            "Entertainment"
+        ],
+        "imgUrl": "/src/assets/Nasher_museum.png"
+    },
+    {
+        "name": "Devil's Bistro",
+        "address": "1917 Yearby Ave Durham, NC 27705",
+        "coordinates": {lat:36.0041596, lng:78.92901740000002},
+        "Description": "Dining place for students living at central campus",
+        "categories": [
+            "Indoor",
+            "Central Campus",
+            "Dining",
+            "Entertainment"
+        ],
+        "imgUrl": "/src/assets/DevilsBistro.jpeg"
+    },
+    {
+        "name": "Brodhead Center",
+        "address": "402 Chapel Dr, Durham, NC 27710",
+        "coordinates": {lat:36.0011944, lng:-78.93991729999999},
+        "Description": "Recently renovated building that brings people together by dining, studying, and socializing",
+        "categories": [
+            "Indoor",
+            "West Campus",
+            "Dining",
+            "Entertainment"
+        ],
+        "imgUrl": "/src/assets/WestUnion.png"
+    },
+    {
+        "name": "Duke Lemur Center",
+        "address": "3705 Erwin Rd, Durham, NC 27705",
+        "coordinates": {lat:35.9944983, lng:-78.96085819999996},
+        "Description": "Place to see world's largest and most diverse collections of lemurs",
+        "categories": [
+            "Outdoor",
+            "Education",
+            "Entertainment"
+        ],
+        "imgUrl": "/src/assets/LemurCenter.jpeg"
+    },
+    {
+        "name": "Sarah P. Duke Gardens",
+        "address": "420 Anderson St, Durham, NC 27708",
+        "coordinates": {lat:36.0024617, lng:-78.93323529999998},
+        "Description": "55 acres large garden with full of flowers and a beautiful pond",
+        "categories": [
+            "Outdoor",
+            "West Campus",
+            "Central Campus",
+            "Entertainment"
+        ],
+        "imgUrl": "/src/assets/garden.jpg"
+    },
+    {
+        "name": "Baldwin Auditorium",
+        "address": "1336 Campus Drive, Durham, NC 27705",
+        "coordinates": {lat:36.009034, lng:-78.91465240000002},
+        "Description": "Classic Georgian auditorium where great musical performances happen",
+        "categories": [
+            "Indoor",
+            "East Campus",
+            "Entertainment"
+        ],
+        "imgUrl": "/src/assets/Baldwin.jpg"
+    },
+    {
+        "name": "Cameron Indoor Stadium",
+        "address": "115 Whitford Dr, Durham, NC 27705",
+        "coordinates": {lat:35.9979158, lng:-78.94236999999998},
+        "Description": "Home of Duke basketball and coach K, where all the passion is",
+        "categories": [
+            "Indoor",
+            "West Campus",
+            "Entertainment"
+        ],
+        "imgUrl": "/src/assets/cameron.jpg"
+    },
+        {
+        "name": "Puppy Center",
+        "address": "15 Circuit Dr, Durham, NC 27710",
+        "coordinates": {lat:36.0022589, lng:-78.9431601},
+        "Description": "Look at everybody's favorite, retriever puppies, Kyler and Ernie!",
+        "categories": [
+            "Indoor",
+            "West Campus",
+            "Entertainment"
+        ],
+        "imgUrl": "/src/assets/puppy.jpeg"
+    },
+    {
+        "name": "Wallace Wade Stadium",
+        "address": "110 Frank Basset Dr, Durham, NC 27705",
+        "coordinates": {lat:36.0022589, lng:-78.9431601},
+        "Description": "Recently renovated football stadium which also holds the graduation ceremony at Duke",
+        "categories": [
+            "Outdoor",
+            "West Campus",
+            "Entertainment"
+        ],
+        "imgUrl": "/src/assets/wallace.jpeg"
+    },
+    ]
 }
