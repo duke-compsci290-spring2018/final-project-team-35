@@ -26,8 +26,8 @@ import Vue from 'vue'
 import {firebase} from './firebase.js'
 
 
-const bgUrls = ['/src/assets/Duke_01.png', '/src/assets/Duke_02.jpeg', '/src/assets/Duke_03.jpg',
-		'/src/assets/Duke_04.jpg', '/src/assets/Duke_05.jpg', '/src/assets/Duke_06.jpg']
+const bgUrls = ['./src/assets/Duke_01.png', './src/assets/Duke_02.jpeg', './src/assets/Duke_03.jpg',
+		'./src/assets/Duke_04.jpg', './src/assets/Duke_05.jpg', './src/assets/Duke_06.jpg']
 
 export default {
   created() {
