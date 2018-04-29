@@ -9,7 +9,9 @@
         <p> {{ postInfo.likes.length }} </p>
       </div>
       <button v-on:click='like' v-bind:disabled='alreadyLiked'> LIKE <i class="fa fa-heart"></i></button>
-      <div id='post-viewer-body' v-html='postInfo.html'>
+      <div id='post-viewer-body'>
+        <div id='post-viwer-html' v-html='postInfo.html'>
+        </div>
       </div>
       <div id='post-viewer-comments'>
         <div class='grey-block'>
@@ -87,6 +89,7 @@
 
   #post-viewer-title, #post-viewer-body {
     padding-left: 1%;
+    overflow: hidden;
   }
 
   button {

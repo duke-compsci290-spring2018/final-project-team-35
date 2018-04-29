@@ -1,29 +1,60 @@
 <template>
   <div id='post-editor'>
     <input v-model='postInfo.title' placeholder=" Title:">
-    <vue-quill-editor v-model.sync='postInfo.html'></vue-quill-editor>
+    <quill-editor ref='myQuillEditor' v-model.sync='postInfo.html' v-bind:options='editorOption'></quill-editor>
     <button class='blue-button' v-on:click='addPost(); $router.go(-1);'> Submit </button>
     <button class='blue-button' v-on:click='$router.go(-1)'> Cancel </button>
   </div>
 </template>
 
 <script>
+  import Vue from 'vue'
   import VueQuillEditor from 'vue-quill-editor'
+  import Quill from 'quill';
   import 'quill/dist/quill.core.css'
   import 'quill/dist/quill.snow.css'
   import 'quill/dist/quill.bubble.css'
+  import ImageResize from 'quill-image-resize-module';
   import {db} from '../firebase.js'
+  
+  Quill.register('modules/imageResize', ImageResize);
+  Vue.use(VueQuillEditor)
+  
+  const toolbarOptions = [
+    ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+    ['blockquote', 'code-block'],
+  
+    [{ 'header': 1 }, { 'header': 2 }],               // custom button values
+    [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+    [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
+    [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
+    [{ 'direction': 'rtl' }],                         // text direction
+  
+    [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
+    [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+  
+    [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+    [{ 'font': [] }],
+    [{ 'align': [] }, 'image'],
+  
+    ['clean']                                         // remove formatting button
+  ];
 
   export default {
     name: 'post-editor',
-    components: {
-      VueQuillEditor: VueQuillEditor.quillEditor
-    },
     created() {
       this.postInfo = this.$route.params.postInfo
     },
     data() {
-      return { postInfo: {} }
+      return { 
+        postInfo: {},
+        editorOption: {
+          modules: {
+            imageResize: {},
+            toolbar: toolbarOptions
+          }
+        }
+      }
     },
     methods: {
       addPost: function() {
