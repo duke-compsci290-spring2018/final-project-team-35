@@ -1,0 +1,23 @@
+html{
+    margin: 0;
+	padding: 0;
+    
+}
+
+body {
+    font-family: 'Itim', cursive;
+    background: #D5D5D5;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+h1 {
+    text-align: center;
+    background: #96858F;
+    padding: 2%;
+}
+
+img {
+    width: 60%;
+    height: 50%;
+}
