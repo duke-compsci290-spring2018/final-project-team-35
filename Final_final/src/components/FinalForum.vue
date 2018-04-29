@@ -84,5 +84,23 @@ export default {
 }
 </script>
 
-<style>
+
+<style scoped>
+    #final-forum {
+        padding: 4%;
+        margin: 4%;
+        background-color: #fff;
+        
+    }
+    
+    button {
+        width: 15%;
+        color: #fff;
+        margin: 3%;
+        background: black;
+    }
+    
+    
+    
+    
 </style>
