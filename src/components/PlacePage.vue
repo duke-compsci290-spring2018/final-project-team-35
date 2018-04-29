@@ -6,11 +6,11 @@
             <div id="shoppingCart" v-for="list in cart">
                 <li class="list">{{list.name}} <button type="button" class="btn btn-danger" v-on:click="remove_cart(list), makeLocation()" v-show="yes">Remove</button></li>
             </div>
-              <button v-on:click="yes=false, makeLocation()" class="generateBtn">Generate Map</button>
+              <button v-on:click="yes=false, makeLocation()" class="generateBtn" v-if="yes">Generate Map</button>
           </div>
-        <p id = 'filter'><span class="glyphicon glyphicon-filter"></span> Categories:</p>
+        <p id = 'filter' v-if="yes"><span class="glyphicon glyphicon-filter"></span> Categories:</p>
       </div>
-      <div class='checkbox'>
+      <div class='checkbox' v-if="yes">
         <label class="checkbox-inline" >
         <input type="checkbox" value="" v-on:click.stop="addSelected('Indoor')" checked>Indoor
         </label>
@@ -36,11 +36,12 @@
       </div>
     </div>
     <div id="work"></div>
+      <div id="title" v-if="!yes">Your Visit at Duke</div>
       <div id="map" v-show="!yes">
           <gmap-map
           :center="center"
           :zoom="zoom"
-          style="width:100%;  height: 500px;"
+          style="width:100%;  height: 500px; margin-bottom: 3%;"
         >
             <gmap-marker
                 :key="index"
@@ -57,6 +58,7 @@
         </gmap-map>
           
     </div>
+      <footer><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</footer>
   </div>
 
 </template>
@@ -143,6 +145,16 @@ export default {
 .choiceCart{
     position: relative;
     right: 0;
+    font-size: 150%;
+    font-weight: bolder;
+    color: crimson;
+}
+
+#shoppingCart{
+    background-color: lightgoldenrodyellow;
+    width: 20%;
+    color: black;
+    font-weight: normal;
 }
     
 .list{
@@ -155,7 +167,7 @@ export default {
 .generateBtn{
     background-color: darkcyan;
     margin: 2%;
-    font-size: 200%;
+    font-size: 150%;
 }
     
 .places p {
@@ -164,10 +176,13 @@ export default {
     margin: 2%;
 }
 
-#shoppingCart{
-    background-color: lightgoldenrodyellow;
-    width: 20%;
-}
+#title{
+    font-size: 300%;
+    font-weight: bolder;
+    text-align: center;
+}    
+    
+
     
 .checkbox {
     margin: 3%;

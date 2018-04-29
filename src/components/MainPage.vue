@@ -5,6 +5,7 @@
     <div id='afterlogin' v-if='init' v-show='loggedIn'>
       <h1> <i> Welcome to Duke University! </i> </h1>
     </div>
+      <footer class="footer"><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</footer>
   </div>
 </template>
 
@@ -96,5 +97,10 @@ export default {
 #beforelogin input {
   margin-left: 5px;
   font-family: 'PT Sans', sans-serif;
+}
+    
+.footer{
+    position: absolute;
+    bottom: 0;
 }
 </style>
