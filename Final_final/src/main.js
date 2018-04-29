@@ -18,7 +18,7 @@ const router = new VueRouter({
     { path: '/forum', component: FinalForum },
     { path: '/forum/edit_post', name: 'post-editor', component: PostEditor, props: true },
     { path: '/forum/view_post/:postKey', component: PostViewer },
-    { path: '*', component: NotFoundComponent }
+    { path: '*', component: MainPage }
   ]
 })
 
