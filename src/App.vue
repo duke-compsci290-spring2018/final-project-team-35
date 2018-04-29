@@ -31,17 +31,25 @@ export default {
   },
   data() {
     return {
-      user: undefined
+      user: undefined, 
+      uuid : ""
     }
   },
   computed: {
     loggedIn: function() {
       return this.user != null
-    }
+          
+      }
+    
   },
   methods: {
     userChangeHandler: function(user) {
       this.user = user
+      if(user) {
+          // 1. verify that user is not in the database
+          if(user) {}
+          // 2. push the user information into the database
+      }      
     },
     signOut: function() {
       firebase.auth().signOut()

@@ -1,34 +1,34 @@
 <template>
   <div id='final-forum'>
-    <div id='forum-search'>
-      <input v-model='searchFor'>
-    </div>
     <div id='forum-header'>
       <button class='blue-button' v-on:click='update("updated_at")'> Latest </button>
       <button class='blue-button' v-on:click='update("likes")'> Likes </button>
       <button class='blue-button' v-on:click='update("views")'> Views </button>
-      <button class='blue-button' v-on:click='addPost'> New Post </button>
+      <button class='blue-button' v-on:click='addPost' v-if='loggedIn'> New Post </button>
     </div>
     <div id='forum-posts'>
       <div class='forum-post' v-for='post in postsInThisPage'> 
         <div class='grey-block' v-on:click='$router.push("/forum/view_post/"+post.key)'>
-          <p> title: {{post.title}} </p>
-          <p> likes: {{post.likes}} </p>
-          <p> views: {{post.views}} </p>
+          <h3> {{post.title}} </h3>
+          <p> {{post.likes}}  <i class="fa fa-heart"></i> <p>
+          <p> {{post.views}}  <i class="fa fa-search"></i></p>
         </div>
       </div>
       <button class='blue-button' v-on:click='page = page-1' v-if='page > 1'> prev </button>
-      <button class='blue-button' v-on:click='page = page+1' v-if='page < maxPage'> next </button>
+      <button class='blue-button' id = 'next' v-on:click='page = page+1' v-if='page < maxPage'> next </button>
     </div>
   </div>
 </template>
 
 <script>
 import Vue from 'vue'
-import {db} from '../firebase.js'
+import {db, firebase} from '../firebase.js'
 
 export default {
   name: 'final-forum',
+  mounted() {
+    firebase.auth().onAuthStateChanged( this.userChangeHandler )      
+  },
   computed: {
     postsInThisPage: function() {
       var ret = []
@@ -39,6 +39,9 @@ export default {
     },
     maxPage: function() {
       return Math.floor((this.posts.length-1)/this.limit)+1
+    },
+    authorName: function() {
+        // user.displayName <- google api <- author_uuid 
     }
   },
   data() {
@@ -46,7 +49,8 @@ export default {
       searchFor: '',
       page: 1,
       limit: 5,
-      posts: []
+      posts: [],
+      loggedIn: false    
     }
   },
   methods: {
@@ -76,6 +80,9 @@ export default {
 	  }
 	}
       })
+    },
+    userChangeHandler: function(user) {
+      this.loggedIn = user != null
     }
   },
   beforeMount() {
@@ -86,11 +93,11 @@ export default {
 
 
 <style scoped>
+    
     #final-forum {
         padding: 4%;
-        margin: 4%;
-        background-color: #fff;
-        
+        background: #a9a9a9;
+        min-height: 100%;
     }
     
     button {
@@ -100,7 +107,27 @@ export default {
         background: black;
     }
     
+    button:hover {
+        background: azure;
+        color: black;
+    }
     
+    .forum-post {
+        margin: 2%;
+        padding: 1%;
+        background: #fff;
+    }
     
+    #next {
+        margin-left: 80%;
+    }
+    
+    p {
+        text-align: right;
+    }
+    
+    i {
+        color: firebrick;
+    }
     
 </style>
