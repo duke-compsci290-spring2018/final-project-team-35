@@ -47,7 +47,7 @@
             "Dining",
             "Entertainment"
         ],
-        "imgUrl": "/src/assets/DevilsBistro.jpeg"
+        "imgUrl": "/src/assets/DevilsBistro.jpg"
     },
     {
         "name": "Brodhead Center",
@@ -60,7 +60,7 @@
             "Dining",
             "Entertainment"
         ],
-        "imgUrl": "/src/assets/WestUnion.png"
+        "imgUrl": "/src/assets/WestUnion.jpeg"
     },
     {
         "name": "Duke Lemur Center",
@@ -72,7 +72,7 @@
             "Education",
             "Entertainment"
         ],
-        "imgUrl": "/src/assets/LemurCenter.jpeg"
+        "imgUrl": "/src/assets/LemurCenter.png"
     },
     {
         "name": "Sarah P. Duke Gardens",
@@ -121,7 +121,7 @@
             "West Campus",
             "Entertainment"
         ],
-        "imgUrl": "/src/assets/puppy.jpeg"
+        "imgUrl": "/src/assets/puppy.jpg"
     },
     {
         "name": "Wallace Wade Stadium",
@@ -133,7 +133,7 @@
             "West Campus",
             "Entertainment"
         ],
-        "imgUrl": "/src/assets/wallace.jpeg"
+        "imgUrl": "/src/assets/wallace.jpg"
     }
     ]
 }

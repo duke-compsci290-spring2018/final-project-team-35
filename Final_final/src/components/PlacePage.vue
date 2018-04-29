@@ -16,23 +16,15 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-sm-6 col-md-4" v-for="item in data">
+      <div class="col-sm-6 col-md-4" v-for="place in places">
         <div class="thumbnail">
-          <img src="/src/assets/Duke_01.png" alt="chapel">
+          <img v-bind:src="place.imgUrl" v-bind:alt="place.name">
           <div class="caption">
-            <h3>Duke Chapel</h3>
-            <p><i class="fa fa-map-marker"></i> 401 Chapel Dr, Durham, NC 27708</p>
+            <h3>{{place.name}}</h3>
+            <p><i class="fa fa-map-marker"></i> {{place.address}}</p>
             <p><a href="#" class="btn btn-danger" role="button">starred</a></p>
+          
           </div>
-        </div>
-        
-        <div class="thumbnail">
-	  <img src="/src/assets/Duke_04.jpg" alt="chapel">
-	  <div class="caption">
-	    <h3>Duke Chapel</h3>
-            <p><i class="fa fa-map-marker"></i> 401 Chapel Dr, Durham, NC 27708</p>
-            <p><a href="#" class="btn btn-danger" role="button">starred</a></p>
-	  </div>
         </div>
       </div>
     </div>
@@ -40,8 +32,14 @@
 </template>
 
 <script>
-var data = require('../assets/places.json');
+var placesJSON = require('../assets/places.json');
 export default {
+    name: 'final-forum',
+  data() {
+    return {
+      places: placesJSON.places
+    }
+  }
 }
 </script>
 
