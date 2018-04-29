@@ -6,7 +6,7 @@ import PlacePage from './components/PlacePage.vue'
 import FinalForum from './components/FinalForum.vue'
 import PostEditor from './components/PostEditor.vue'
 import PostViewer from './components/PostViewer.vue'
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const NotFoundComponent = { template: '<div> <h1> Page Not Found </h1> </div>' }
 
@@ -20,7 +20,7 @@ const router = new VueRouter({
     { path: '/forum/view_post/:postKey', component: PostViewer },
     { path: '*', component: MainPage }
   ]
-})
+});
 
 new Vue({
   el: '#app',
