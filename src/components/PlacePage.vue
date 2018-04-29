@@ -2,6 +2,12 @@
   <div id = 'places'> 
     <div id='category-selector'>
       <div class='checkbox-header'>
+          <div class="choiceCart">Your Choices
+            <div id="shoppingCart" v-for="list in cart">
+                <li class="list">{{list.name}} <button type="button" class="btn btn-danger" v-on:click="remove_cart(list), makeLocation()" v-show="yes">Remove</button></li>
+            </div>
+              <button v-on:click="yes=false, makeLocation()" class="generateBtn">Generate Map</button>
+          </div>
         <p id = 'filter'><span class="glyphicon glyphicon-filter"></span> Categories:</p>
       </div>
       <div class='checkbox'>
@@ -30,11 +36,6 @@
       </div>
     </div>
     <div id="work"></div>
-        <div id="shoppingCart" v-for="list in cart">
-            {{list.name}}
-            <button type="button" class="btn btn-danger" v-on:click="remove_cart(list), makeLocation()">Remove</button>
-        </div>
-        <button v-on:click="yes=false, makeLocation()">Generate Map</button>
       <div id="map" v-show="!yes">
           <gmap-map
           :center="center"
@@ -128,6 +129,24 @@ export default {
 .places {
     margin: 3%;
 }
+
+.choiceCart{
+    position: relative;
+    right: 0;
+}
+    
+.list{
+    margin: 1%;
+    margin-left: 5%;
+    font-size: 100%;
+    font-weight: bolder;
+}    
+    
+.generateBtn{
+    background-color: darkcyan;
+    margin: 2%;
+    font-size: 200%;
+}
     
 .places p {
     color: darkblue;
@@ -136,8 +155,8 @@ export default {
 }
 
 #shoppingCart{
-    background-color: black;
-    width: 30%;
+    background-color: lightgoldenrodyellow;
+    width: 20%;
 }
     
 .checkbox {
