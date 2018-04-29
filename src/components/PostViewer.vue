@@ -71,11 +71,13 @@
 </script>
 
 <style scoped>
-
+  @import url('https://fonts.googleapis.com/css?family=Roboto+Slab'); 
+  
   #post-viewer {
     padding: 4%;
     border: solid black;
     margin: 4%;
+    font-family: 'Roboto Slab', serif;
   }
 
   #post-viewer-comments {
@@ -94,6 +96,7 @@
     background: grey;
     margin-left: 89%;
     cursor: pointer;
+    margin-bottom: 2%;
 
   }
 
@@ -106,10 +109,7 @@
     margin-top: 1%;
     margin-bottom: 2%;
   }
-
-  img {
-    width:30%;
-  }
+  
 
 </style>
 

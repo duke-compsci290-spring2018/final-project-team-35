@@ -51,11 +51,13 @@
 </script>
 
 <style scoped>
-
+  @import url('https://fonts.googleapis.com/css?family=Roboto+Slab'); 
+  
   #post-editor {
     padding: 4%;
     border: solid grey;
     margin: 4%;
+    font-family: 'Roboto Slab', serif;
   }
 
   button {

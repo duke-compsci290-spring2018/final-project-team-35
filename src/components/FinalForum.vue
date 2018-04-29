@@ -14,8 +14,10 @@
           <p> {{post.views}}  <i class="fa fa-search"></i></p>
         </div>
       </div>
-      <button class='blue-button' v-on:click='page = page-1' v-if='page > 1'> prev </button>
-      <button class='blue-button' id = 'next' v-on:click='page = page+1' v-if='page < maxPage'> next </button>
+      <div id="position">
+        <button class='blue-button' v-on:click='page = page-1' v-if='page > 1'> prev </button>
+        <button class='blue-button' id = 'next' v-on:click='page = page+1' v-if='page < maxPage'> next </button>
+      </div>
     </div>
       <footer><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</footer>
   </div>
@@ -94,13 +96,20 @@
 
 
 <style scoped>
-    
+  @import url('https://fonts.googleapis.com/css?family=Roboto+Slab'); 
+  
   #final-forum {
     padding: 4%;
     background: #a9a9a9;
     min-height: 100%;
+    font-family: 'Roboto Slab', serif;
   }
 
+  
+  #next {
+    float: right;
+  }
+  
   button {
     width: 15%;
     color: #fff;
@@ -113,15 +122,14 @@
     color: black;
   }
 
+  
   .forum-post {
     margin: 2%;
     padding: 1%;
     background: #fff;
   }
 
-  #next {
-    margin-left: 80%;
-  }
+ 
 
   p {
     text-align: right;

@@ -138,8 +138,11 @@
 </script>
 
 <style scoped>
+  @import url('https://fonts.googleapis.com/css?family=Slabo+30px');
+  
   #places{
     margin: 2%;
+    font-family: 'Slabo 30px', serif;
   }
   .thumbnail{        
     width : 100%;
