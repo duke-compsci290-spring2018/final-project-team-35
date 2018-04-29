@@ -31,7 +31,7 @@ export default {
 
       var curTime = Math.floor(Date.now() / 1000) 
       if(pi['created_at'] === undefined)
-	pi['created_at'] = curTime
+	  pi['created_at'] = curTime
       pi['updated_at'] = curTime
       pi['visible'] = true
       pi['views'] = pi['likes'] = 0
@@ -50,5 +50,7 @@ export default {
 
 </script>
 
-<style>
+<style scoped>
+    
+    
 </style>
