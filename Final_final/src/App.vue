@@ -3,12 +3,12 @@
     <nav class='navbar navbar-inverse'>
       <div class='container-fluid'>
         <div class='navbar-header'>
-	  <router-link class='navbar-brand' to='/'>Tour<i class='fa fa-at'></i>Duke</router-link>
+	  <router-link class='navbar-brand' to='/final-project-team-35/Final_final/'>Tour<i class='fa fa-at'></i>Duke</router-link>
         </div>
         <ul class='nav navbar-nav'>
-            <li><router-link to='/final-project-team-35/'><i class='fa fa-home' aria-hidden='true'></i> Home</router-link></li>
-	    <li><router-link to='/final-project-team-35/places'><i class='fa fa-map-signs'></i> Places</router-link></li>
-            <li><router-link to='/final-project-team-35/forum'><i class='fa fa-comments'></i> Forum</router-link></li>
+            <li><router-link to='/final-project-team-35/Final_final/'><i class='fa fa-home' aria-hidden='true'></i> Home</router-link></li>
+	    <li><router-link to='/final-project-team-35/Final_final/places'><i class='fa fa-map-signs'></i> Places</router-link></li>
+            <li><router-link to='/final-project-team-35/Final_final/forum'><i class='fa fa-comments'></i> Forum</router-link></li>
         </ul>
         <ul class='nav navbar-nav navbar-right'>
 	  <li v-if='!loggedIn'><a href='#'> Guest <i class="fa fa-user-secret"></i> </a></li>
