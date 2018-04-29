@@ -9,7 +9,7 @@
             "Indoor",
             "West"
         ],
-        "imgUrl": "/src/assets/chapel.png"
+        "imgUrl": "./src/assets/chapel.png"
     },
     {
         "name": "Perkins Library",
@@ -21,7 +21,7 @@
             "West",
             "Education"
         ],
-        "imgUrl": "/src/assets/Perkins_Library.jpeg"
+        "imgUrl": "./src/assets/Perkins_Library.jpeg"
     },
       {
         "name": "Nasher Museum of Art",
@@ -34,7 +34,7 @@
             "Education",
             "Entertainment"
         ],
-        "imgUrl": "/src/assets/Nasher_museum.png"
+        "imgUrl": "./src/assets/Nasher_museum.png"
     },
     {
         "name": "Devil's Bistro",
@@ -46,7 +46,7 @@
             "Central",
             "Dining"
         ],
-        "imgUrl": "/src/assets/DevilsBistro.jpg"
+        "imgUrl": "./src/assets/DevilsBistro.jpg"
     },
     {
         "name": "Brodhead Center",
@@ -59,7 +59,7 @@
             "Dining",
             "Entertainment"
         ],
-        "imgUrl": "/src/assets/WestUnion.jpeg"
+        "imgUrl": "./src/assets/WestUnion.jpeg"
     },
     {
         "name": "Duke Lemur Center",
@@ -71,7 +71,7 @@
             "Education",
             "Entertainment"
         ],
-        "imgUrl": "/src/assets/LemurCenter.png"
+        "imgUrl": "./src/assets/LemurCenter.png"
     },
     {
         "name": "Sarah P. Duke Gardens",
@@ -83,7 +83,7 @@
             "Central",
             "Entertainment"
         ],
-        "imgUrl": "/src/assets/garden.jpg"
+        "imgUrl": "./src/assets/garden.jpg"
     },
     {
         "name": "Baldwin Auditorium",
@@ -95,7 +95,7 @@
             "East",
             "Entertainment"
         ],
-        "imgUrl": "/src/assets/Baldwin.jpg"
+        "imgUrl": "./src/assets/Baldwin.jpg"
     },
     {
         "name": "Cameron Indoor Stadium",
@@ -107,7 +107,7 @@
             "West",
             "Entertainment"
         ],
-        "imgUrl": "/src/assets/cameron.jpg"
+        "imgUrl": "./src/assets/cameron.jpg"
     },
         {
         "name": "Puppy Center",
@@ -119,7 +119,7 @@
             "West",
             "Entertainment"
         ],
-        "imgUrl": "/src/assets/puppy.jpg"
+        "imgUrl": "./src/assets/puppy.jpg"
     },
     {
         "name": "Wallace Wade Stadium",
@@ -131,7 +131,7 @@
             "West",
             "Entertainment"
         ],
-        "imgUrl": "/src/assets/wallace.jpg"
+        "imgUrl": "./src/assets/wallace.jpg"
     }
     ]
 }

@@ -1,5 +1,5 @@
 <template>
-  <div id='main-page'>
+  <div id='main-page' v-bind:style='{ backgroundImage: "url("+bgUrl+")" }'>
     <div id='beforelogin' v-if='init' v-show='!loggedIn'>
     </div>
     <div id='afterlogin' v-if='init' v-show='loggedIn'>
@@ -13,7 +13,18 @@ import Vue from 'vue'
 import {ui, uiConfig, firebase} from '../firebase.js'
 import * as firebaseui from 'firebaseui'
 
+const rootDir = '.'
+// FOR PRODUCTION
+// const rootDir = '/final-project-team-35'
+
+const bgUrls = [rootDir+'/src/assets/Duke_01.png', rootDir+'/src/assets/Duke_02.jpeg', rootDir+'/src/assets/Duke_03.jpg',
+		rootDir+'/src/assets/Duke_04.jpg', rootDir+'/src/assets/Duke_05.jpg', rootDir+'/src/assets/Duke_06.jpg']
+
 export default {
+  created() {
+    this.bgUrl = bgUrls[Math.floor(Math.random() * (bgUrls.length-1))]
+    console.log(this.bgUrl)
+  },
   mounted() {
     firebase.auth().onAuthStateChanged( this.userChangeHandler )
     Vue.set(this, 'init', true)
@@ -21,7 +32,8 @@ export default {
   data() {
     return {
       user: undefined,
-      init: false
+      init: false,
+      bgUrl: ''
     }
   },
   computed: {
@@ -34,6 +46,7 @@ export default {
       this.user = user
       ui.start('#beforelogin', uiConfig)
     }
+    
   }
 }
 </script>
@@ -42,8 +55,18 @@ export default {
 @import url('https://fonts.googleapis.com/css?family=Cinzel');
 @import url('https://fonts.googleapis.com/css?family=PT+Sans');
 
+#main-page {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.8;
+  width: 100%;
+  height: 100%;
+}
+
 #beforelogin {
-  position: absolute;
+  position: relative;
+  width: 70%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -56,7 +79,8 @@ export default {
 }
 
 #afterlogin {
-  position: absolute;
+  position: relative;
+  width: 70%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);

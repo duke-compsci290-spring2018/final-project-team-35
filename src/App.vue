@@ -1,5 +1,5 @@
 <template>
-  <div id='app' v-bind:style='{ backgroundImage: "url("+bgUrl+")" }'>
+  <div id='app'>
     <nav class='navbar navbar-inverse'>
       <div class='container-fluid'>
         <div class='navbar-header'>
@@ -25,31 +25,31 @@
 import Vue from 'vue'
 import {firebase} from './firebase.js'
 
-
-const bgUrls = ['./src/assets/Duke_01.png', './src/assets/Duke_02.jpeg', './src/assets/Duke_03.jpg',
-		'./src/assets/Duke_04.jpg', './src/assets/Duke_05.jpg', './src/assets/Duke_06.jpg']
-
 export default {
-  created() {
-    this.bgUrl = bgUrls[Math.floor(Math.random() * (bgUrls.length-1))]
-  },
   mounted: function() {
     firebase.auth().onAuthStateChanged( this.userChangeHandler )  
   },
   data() {
     return {
-      user: undefined,
-      bgUrl: ''
+      user: undefined, 
+      uuid : ""
     }
   },
   computed: {
     loggedIn: function() {
       return this.user != null
-    }
+          
+      }
+    
   },
   methods: {
     userChangeHandler: function(user) {
       this.user = user
+      if(user) {
+          // 1. verify that user is not in the database
+          if(user) {}
+          // 2. push the user information into the database
+      }      
     },
     signOut: function() {
       firebase.auth().signOut()
@@ -59,7 +59,7 @@ export default {
 </script>
 
 <style>
-html {
+html, body {
     margin: 0;
     padding: 0;
     height: 100%;
@@ -71,7 +71,7 @@ html {
   background-position: center;
   opacity: 0.8;
   width: 100%;
-  min-height: 100vh;
+  height: 100%;
 }
 
 .navbar {
