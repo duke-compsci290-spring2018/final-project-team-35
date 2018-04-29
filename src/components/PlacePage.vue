@@ -45,11 +45,17 @@
                 :key="index"
                 v-for="(m, index) in markers"
                 :position="m.position"
-                @click="center=m.position"
+                @click="center=m.position; showInfo(m)"
               ></gmap-marker>
+            <gmap-info-window
+                v-for="(m, index) in markers"
+		v-if="m.markerOn"
+		:position="m.position">
+		{{m.name}}
+            </gmap-info-window>
         </gmap-map>
           
-        </div>
+    </div>
   </div>
 
 </template>
@@ -59,6 +65,7 @@
 </script>
 <script>
 import Vue from 'vue'
+
 var placesJSON = require('../assets/places.json');
 export default {
     name: 'final-forum',
@@ -92,7 +99,7 @@ export default {
         makeLocation(){
             for(var i = 0; i < this.cart.length; i++){
                 var location = new google.maps.LatLng(this.cart[i].coordinates[0], this.cart[i].coordinates[1]);
-                this.markers.push({"position": location});
+                this.markers.push({"position": location, "name": this.cart[i].name, "markerOn": true});
             }
         },
         addSelected(category){
@@ -119,7 +126,10 @@ export default {
                 }
             }
             return false;
-        }
+        },
+	showInfo(m) {
+	   m.markerOn = !m.markerOn
+	}
     }
 }
 </script>
