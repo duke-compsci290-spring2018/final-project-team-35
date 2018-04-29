@@ -107,6 +107,9 @@
     margin-bottom: 2%;
   }
 
+  img {
+    width:30%;
+  }
 
 </style>
 

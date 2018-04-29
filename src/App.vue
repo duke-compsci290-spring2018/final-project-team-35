@@ -22,72 +22,72 @@
 </template>
 
 <script>
-import Vue from 'vue'
-import {firebase} from './firebase.js'
+  import Vue from 'vue'
+  import {firebase} from './firebase.js'
 
-export default {
-  mounted: function() {
-    firebase.auth().onAuthStateChanged( this.userChangeHandler )  
-  },
-  data() {
-    return {
-      user: undefined, 
-      uuid : ""
-    }
-  },
-  computed: {
-    loggedIn: function() {
-      return this.user != null
-          
-      }
-    
-  },
-  methods: {
-    userChangeHandler: function(user) {
-      this.user = user
-      if(user) {
-          // 1. verify that user is not in the database
-          if(user) {}
-          // 2. push the user information into the database
-      }      
+  export default {
+    mounted: function() {
+      firebase.auth().onAuthStateChanged( this.userChangeHandler )  
     },
-    signOut: function() {
-      firebase.auth().signOut()
+    data() {
+      return {
+        user: undefined, 
+        uuid : ""
+      }
+    },
+    computed: {
+      loggedIn: function() {
+        return this.user != null
+
+        }
+
+    },
+    methods: {
+      userChangeHandler: function(user) {
+        this.user = user
+        if(user) {
+            // 1. verify that user is not in the database
+            if(user) {}
+            // 2. push the user information into the database
+        }      
+      },
+      signOut: function() {
+        firebase.auth().signOut()
+      }
     }
   }
-}
-</script>
+  </script>
 
-<style>
-html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-}
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
 
-#app {
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  opacity: 0.8;
-  width: 100%;
-  height: 100%;
-}
+    #app {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      opacity: 0.8;
+      width: 100%;
+      height: 100%;
+    }
 
-.navbar {
-  margin-bottom: 0px;
-  border-radius: 0px;
-}
+    .navbar {
+      margin-bottom: 0px;
+      border-radius: 0px;
+    }
 
-button {
-    color: black;
-    border: 0px;
-    border-radius: 4px;
-    margin-left: 10px;
-    margin-right: 10px;
-}
+    button {
+      color: black;
+      border: 0px;
+      border-radius: 4px;
+      margin-left: 10px;
+      margin-right: 10px;
+    }
 
-button:hover{
-    color: #888;
-}
+    button:hover{
+      color: #888;
+    }
 </style>
