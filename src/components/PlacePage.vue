@@ -29,6 +29,8 @@
           <img v-bind:src="place.imgUrl" v-bind:alt="place.name">
           <div class="caption">
             <h3>{{place.name}}</h3>
+            <h5>Categories Chosen: {{place.categories}}</h5>
+            <h5>{{place.description}}</h5>
             <p><i class="fa fa-map-marker"></i> {{place.address}}</p>
             <p><button type="button" class="btn btn-danger" v-on:click="add_cart(place)">Add to cart</button></p>
           </div>

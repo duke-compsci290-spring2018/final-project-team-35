@@ -5,9 +5,9 @@ Separate repository for Final Project to make it easier to share or experiment w
 - Finished: April 29th
 - Hours:  100 hours
 - Consulted with: NONE
-- Online Resources: https://www.w3schools.com/ https://css-tricks.com/, https://developers.google.com/maps/?hl=en, https://www.gps-coordinates.net/
+- Online Resources: https://www.w3schools.com/ https://css-tricks.com/, https://developers.google.com/maps/?hl=en, https://www.gps-coordinates.net/, https://router.vuejs.org/en/essentials/navigation.html, https://www.w3schools.com/bootstrap/default.asp, https://getbootstrap.com/docs/3.3/components
 - Assets: ALl images from google images
-- Bugs or Concerns: It's aesthetic design is not as appealing, but it has all and beyond the necessary requirements for this assignment! It took a very long time for me to understand the project, which is why it took so long. I personally thought it was a huge jump from the last assignment, and would've been better if there was some assignment on jquery before we jump in right away to json and ajax. 
+- Bugs or Concerns: 
 
 
 - what makes your application useful

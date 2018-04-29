@@ -4,7 +4,7 @@
         "name": "Duke Chapel",
         "address": "401 Chapel Dr, Durham, NC 27708",
         "coordinates": [36.0019125, -78.9403615],
-        "Description": "Magnificent chapel built in gothic architecutre serving as the main building at Duke University",
+        "description": "Magnificent chapel built in gothic architecutre serving as the main building at Duke University",
         "categories": [
             "Indoor",
             "West"
@@ -15,7 +15,7 @@
         "name": "Perkins Library",
         "address": "411 Chapel Drive Durham, NC 27708",
         "coordinates": [36.0029782, -78.93832629999997],
-        "Description": "Home for many students who enjoy studying in a public place",
+        "description": "Home for many students who enjoy studying in a public place",
         "categories": [
             "Indoor",
             "West",
@@ -27,7 +27,7 @@
         "name": "Nasher Museum of Art",
         "address": "2001 Campus Dr, Durham, NC 27705",
         "coordinates": [35.9990359, -78.92903590000003],
-        "Description": "Art museum with collections of creative and amazing art works",
+        "description": "Art museum with collections of creative and amazing art works",
         "categories": [
             "Indoor",
             "Central",
@@ -40,7 +40,7 @@
         "name": "Devil's Bistro",
         "address": "1917 Yearby Ave Durham, NC 27705",
         "coordinates": [36.0041596, -78.92901740000002],
-        "Description": "Dining place for students living at central campus",
+        "description": "Dining place for students living at central campus",
         "categories": [
             "Indoor",
             "Central",
@@ -52,7 +52,7 @@
         "name": "Brodhead Center",
         "address": "402 Chapel Dr, Durham, NC 27710",
         "coordinates": [36.0011944, -78.93991729999999],
-        "Description": "Recently renovated building that brings people together by dining, studying, and socializing",
+        "description": "Recently renovated building that brings people together by dining, studying, and socializing",
         "categories": [
             "Indoor",
             "West",
@@ -65,7 +65,7 @@
         "name": "Duke Lemur Center",
         "address": "3705 Erwin Rd, Durham, NC 27705",
         "coordinates": [35.9944983, -78.96085819999996],
-        "Description": "Place to see world's largest and most diverse collections of lemurs",
+        "description": "Place to see world's largest and most diverse collections of lemurs",
         "categories": [
             "Outdoor",
             "Education",
@@ -77,7 +77,7 @@
         "name": "Sarah P. Duke Gardens",
         "address": "420 Anderson St, Durham, NC 27708",
         "coordinates": [36.0024617, -78.93323529999998],
-        "Description": "55 acres large garden with full of flowers and a beautiful pond",
+        "description": "55 acres large garden with full of flowers and a beautiful pond",
         "categories": [
             "Outdoor",
             "Central",
@@ -89,7 +89,7 @@
         "name": "Baldwin Auditorium",
         "address": "1336 Campus Drive, Durham, NC 27705",
         "coordinates": [36.009034, -78.91465240000002],
-        "Description": "Classic Georgian auditorium where great musical performances happen",
+        "description": "Classic Georgian auditorium where great musical performances happen",
         "categories": [
             "Indoor",
             "East",
@@ -101,7 +101,7 @@
         "name": "Cameron Indoor Stadium",
         "address": "115 Whitford Dr, Durham, NC 27705",
         "coordinates": [35.9979158, -78.94236999999998],
-        "Description": "Home of Duke basketball and coach K, where all the passion is",
+        "description": "Home of Duke basketball and coach K, where all the passion is",
         "categories": [
             "Indoor",
             "West",
@@ -113,7 +113,7 @@
         "name": "Puppy Center",
         "address": "15 Circuit Dr, Durham, NC 27710",
         "coordinates": [36.0022589, -78.9431601],
-        "Description": "Look at everybody's favorite, retriever puppies, Kyler and Ernie!",
+        "description": "Look at everybody's favorite, retriever puppies, Kyler and Ernie!",
         "categories": [
             "Indoor",
             "West",
@@ -125,13 +125,60 @@
         "name": "Wallace Wade Stadium",
         "address": "110 Frank Basset Dr, Durham, NC 27705",
         "coordinates": [35.99536879999999, -78.94175640000003],
-        "Description": "Recently renovated football stadium which also holds the graduation ceremony at Duke",
+        "description": "Recently renovated football stadium which also holds the graduation ceremony at Duke",
         "categories": [
             "Outdoor",
             "West",
             "Entertainment"
         ],
         "imgUrl": "./src/assets/wallace.jpg"
+    },
+    {
+        "name": "Washington Duke Inn & Golf Club",
+        "address": "3001 Cameron Blvd, Durham, NC 27705",
+        "coordinates": [35.9928204, -78.94744550000001],
+        "description": "Enjoy an amazing round of golf during your visit at Duke!",
+        "categories": [
+            "Outdoor",
+            "West",
+            "Entertainment"
+        ],
+        "imgUrl": "./src/assets/WaDuke.jpg"
+    },
+    {
+        "name": "The Commons",
+        "address": "110 Frank Basset Dr, Durham, NC 27705",
+        "coordinates": [36.0009316, -78.93927070000001],
+        "description": "A fancy dine at Duke",
+        "categories": [
+            "Indoor",
+            "West",
+            "Dining"
+        ],
+        "imgUrl": "./src/assets/TheCommons.png"
+    },
+    {
+        "name": "Divinity Cafe",
+        "address": "407 Chapel Dr, Durham, NC 27710",
+        "coordinates": [36.0021776, -78.93965209999999],
+        "description": "The best grilled cheese sandwich you can get in Durham",
+        "categories": [
+            "Indoor",
+            "West",
+            "Dining"
+        ],
+        "imgUrl": "./src/assets/divinity.jpg"
+    },
+    {
+        "name": "Duke University Stores",
+        "address": "125 Science Dr, Durham, NC 27710",
+        "coordinates": [36.0010954, -78.94111049999998],
+        "description": "Buy souvenirs for you and your friends!",
+        "categories": [
+            "Indoor",
+            "Entertainment"
+        ],
+        "imgUrl": "./src/assets/DuStore.png"
     }
     ]
 }
