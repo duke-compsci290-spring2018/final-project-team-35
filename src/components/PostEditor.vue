@@ -4,6 +4,7 @@
     <vue-quill-editor v-model.sync='postInfo.html'></vue-quill-editor>
     <button class='blue-button' v-on:click='addPost(); $router.go(-1);'> OK </button>
     <button class='blue-button' v-on:click='$router.go(-1)'> Cancel </button>
+      <footer><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</footer>
   </div>
 </template>
 
