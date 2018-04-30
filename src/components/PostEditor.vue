@@ -1,5 +1,6 @@
 <template>
   <div id='post-editor'>
+    <h2>New Post</h2>
     <input v-model='postInfo.title' placeholder=" Title:">
     <quill-editor ref='myQuillEditor' v-model.sync='postInfo.html' v-bind:options='editorOption'></quill-editor>
     <button class='blue-button' v-on:click='addPost(); $router.go(-1);'> Submit </button>
@@ -108,7 +109,9 @@
   #post-editor {
     padding: 4%;
     border: solid grey;
-    margin: 4%;
+    margin-top: 8%;
+    margin-left: 17%;
+    margin-right: 17%;
     font-family: 'Roboto Slab', serif;
   }
 

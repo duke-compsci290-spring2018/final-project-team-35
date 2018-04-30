@@ -207,8 +207,9 @@
   }
   
   .topCtrl {
-    width: 15%;
-    padding: 0;
+    width: 19%;
+    padding: 0.5%;
+    padding-bottom: 3%;
   }
   
   .topCtrl button {
@@ -219,6 +220,7 @@
   .ctrls {
     margin-top: 1%;
     margin-bottom: 1%;
+    height: 200%;
   }
   
   i {
