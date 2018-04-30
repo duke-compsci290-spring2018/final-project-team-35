@@ -7,13 +7,13 @@
       <div id='post-viewer-title'>
         <h1> {{ postInfo.title }}</h1>
         <div id='icons'>
-          <p> {{ postInfo.likes.length }} <i class="fa fa-heart"></i> <p>
-          <p> {{ postInfo.views.length }} <i class="fa fa-search"></i></p>
-          <p> {{ postInfo.comments.length }} <i class="fa fa-comments"></i></p>
+          <p> {{ postInfo.likes.length }} <i class="fa fa-heart"></i>&nbsp; &nbsp; <p>
+          <p> {{ postInfo.views.length }} <i class="fa fa-search"></i>&nbsp; &nbsp; </p>
+          <p> {{ postInfo.comments.length }} <i class="fa fa-comments"></i>&nbsp; </p>
+          <button v-on:click='like' v-if='currentUserUUID != "" && canLike'> LIKE <i class="fa fa-heart"></i></button>
+          <button v-on:click='unlike' v-if='currentUserUUID != "" && !canLike'> UNLIKE <i class="fa fa-heart"></i></button>
         </div>
       </div>
-      <button v-on:click='like' v-if='currentUserUUID != "" && canLike'> LIKE <i class="fa fa-heart"></i></button>
-      <button v-on:click='unlike' v-if='currentUserUUID != "" && !canLike'> UNLIKE <i class="fa fa-heart"></i></button>
       <div id='post-viewer-body'>
         <div id='post-viwer-html' v-html='postInfo.html'>
         </div>
@@ -24,11 +24,11 @@
           <input v-model='newComment' v-on:keydown.enter='addComment' placeholder="Comment">
         </div>
         <div class='grey-block' v-for='(comment, idx) in postInfo.comments'>
-	  <p> {{ comment.author_name }}: {{ comment.contents }} - {{ prettify(comment.created_at) }} </p>
-	  <span v-on:click='deleteComment(idx)' 
-	     v-if='currentUserRole === "admin" || currentUserUUID === comment.author_uuid'> 
-	      <i class='fa fa-ban'></i>
-	  </span>
+	      <p> {{ comment.author_name }}: {{ comment.contents }} - {{ prettify(comment.created_at) }} 
+          <span v-on:click='deleteComment(idx)' 
+           v-if='currentUserRole === "admin" || currentUserUUID === comment.author_uuid'> 
+            <i id= "banban" class='fa fa-times'></i>
+          </span></p>
         </div>
       </div>
     </div>
@@ -145,8 +145,8 @@
     overflow: hidden;
   }
 
-  #post-viewer-body {
-    text-decoration: underline;
+  #post-viewer-title {
+    display: inline-block;
   }
   
 
@@ -154,14 +154,19 @@
     color: firebrick;
   }
   
+  
+  #icons p {
+    display: inline-block;
+  }
+  
   button {
-    width: 10%;
+    width: 80%;
     color: white;
-    margin-top: 3%;
     background: grey;
-    margin-left: 89%;
     cursor: pointer;
-    margin-bottom: 2%;
+    margin-bottom: 5%;
+    display: inline-block;
+    margin-left: 0;
 
   }
 
