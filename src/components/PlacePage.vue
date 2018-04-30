@@ -87,102 +87,102 @@
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFZB_0uAerF2GJSXCxssPRPgNNDzSH4ow&callback=initMap">
 </script>
 <script>
-import Vue from 'vue'
-import {firebase, db} from '../firebase.js'
+  import Vue from 'vue';
+  import {firebase, db} from '../firebase.js';
 
-var placesJSON = require('../assets/places.json');
-export default {
-  name: 'place-page',
-  beforeMount() {
-    firebase.auth().onAuthStateChanged( this.userChangeHandler )
-  },
-  data() {
-    return {
-      data: placesJSON.places,
-      cart: [],
-      yes: true,
-      center: { lat: 36.00133 , lng: -78.939209 },
-      zoom: 16,
-      markers: [],
-      show: true,
-      selected: ["West", "East", "Central"],
-      currentUserUUID: '',
-      myTrips: []
-    }
-  },
-  methods: {
-    add_cart(place){
-      var count = 0;
-      for(var i = 0; i<this.cart.length; i++){
-        if(this.cart[i].name === place.name){
-          count ++;
-        }
-      }
-      if (count == 0){
-        this.cart.push(place);
-      }
+  var placesJSON = require('../assets/places.json');
+  export default {
+    name: 'place-page',
+    beforeMount() {
+      firebase.auth().onAuthStateChanged( this.userChangeHandler );
     },
-    remove_cart(place){
-      this.cart.splice(this.cart.indexOf(place), 1);
+    data() {
+      return {
+        data: placesJSON.places,
+        cart: [],
+        yes: true,
+        center: { lat: 36.00133 , lng: -78.939209 },
+        zoom: 16,
+        markers: [],
+        show: true,
+        selected: ["West", "East", "Central"],
+        currentUserUUID: '',
+        myTrips: []
+      };
     },
-    makeLocation(){
-      Vue.set(this, 'markers', []);
-      for(var i = 0; i < this.cart.length; i++){
-        var location = new google.maps.LatLng(this.cart[i].coordinates[0], this.cart[i].coordinates[1]);
-        this.markers.push({"position": location, "name": this.cart[i].name, "markerOn": true});
-      }
-    },
-    deleteTrip(idx) {
-      this.myTrips.splice(idx, 1);
-      db.ref('/users/'+this.currentUserUUID+'/myTrips').set(this.myTrips);
-    },
-    savePlaces() {
-      var dcCart = []
-      for(var i = 0 ; i < this.cart.length ; i ++)
-	dcCart.push(JSON.parse(JSON.stringify(this.cart[i])));
-      this.myTrips.push(dcCart);
-      db.ref('/users/'+this.currentUserUUID+'/myTrips').set(this.myTrips);
-    },
-    addSelected(category){
-      var idx = -1;
-      for(var i=0; i<this.selected.length; i++){
-        if(this.selected[i] === category){
-          idx = i;
-        }
-      }
-      if(idx == -1) {
-        this.selected.push(category);
-      } else {
-        this.selected.splice(idx,1);
-      }
-    },
-    dumpTrip(trip) {
-      var dcCart = []
-      for(var i = 0 ; i < trip.length ; i ++)
-	dcCart.push(JSON.parse(JSON.stringify(trip[i])));
-      Vue.set(this, 'cart', dcCart)
-    },
-    checkCategory(a, b){
-      for (var i = 0; i < a.length; i++){
-          if(a[i] === b.categories1){
-            return true;
+    methods: {
+      add_cart(place){
+        var count = 0;
+        for(var i = 0; i<this.cart.length; i++){
+          if(this.cart[i].name === place.name){
+            count ++;
           }
         }
-      return false;
-    },
-    showInfo(m) { 
-      m.markerOn = !m.markerOn 
-    }, 
-    userChangeHandler: function(user) {
-      Vue.set(this, 'currentUserUUID', user ? user.uid : '');
-      if(user) {
-        db.ref('/users/'+this.currentUserUUID+'/myTrips').once('value').then(data => {
-	  Vue.set(this, 'myTrips', data.val() ? data.val() : []);
-        })
+        if (count === 0){
+          this.cart.push(place);
+        }
+      },
+      remove_cart(place){
+        this.cart.splice(this.cart.indexOf(place), 1);
+      },
+      makeLocation(){
+        Vue.set(this, 'markers', []);
+        for(var i = 0; i < this.cart.length; i++){
+          var location = new google.maps.LatLng(this.cart[i].coordinates[0], this.cart[i].coordinates[1]);
+          this.markers.push({"position": location, "name": this.cart[i].name, "markerOn": true});
+        }
+      },
+      deleteTrip(idx) {
+        this.myTrips.splice(idx, 1);
+        db.ref('/users/'+this.currentUserUUID+'/myTrips').set(this.myTrips);
+      },
+      savePlaces() {
+        var dcCart = [];
+        for(var i = 0 ; i < this.cart.length ; i ++)
+      dcCart.push(JSON.parse(JSON.stringify(this.cart[i])));
+        this.myTrips.push(dcCart);
+        db.ref('/users/'+this.currentUserUUID+'/myTrips').set(this.myTrips);
+      },
+      addSelected(category){
+        var idx = -1;
+        for(var i=0; i<this.selected.length; i++){
+          if(this.selected[i] === category){
+            idx = i;
+          }
+        }
+        if(idx == -1) {
+          this.selected.push(category);
+        } else {
+          this.selected.splice(idx,1);
+        }
+      },
+      dumpTrip(trip) {
+        var dcCart = [];
+        for(var i = 0 ; i < trip.length ; i ++)
+      dcCart.push(JSON.parse(JSON.stringify(trip[i])));
+        Vue.set(this, 'cart', dcCart);
+      },
+      checkCategory(a, b){
+        for (var i = 0; i < a.length; i++){
+            if(a[i] === b.categories1){
+              return true;
+            }
+          }
+        return false;
+      },
+      showInfo(m) { 
+        m.markerOn = !m.markerOnl;
+      }, 
+      userChangeHandler: function(user) {
+        Vue.set(this, 'currentUserUUID', user ? user.uid : '');
+        if(user) {
+          db.ref('/users/'+this.currentUserUUID+'/myTrips').once('value').then(data => {
+        Vue.set(this, 'myTrips', data.val() ? data.val() : []);
+          });
+        }
       }
     }
-  }
-}
+  };
 </script>
 
 <style scoped>
