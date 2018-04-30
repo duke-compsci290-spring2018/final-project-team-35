@@ -16,18 +16,11 @@
 	  <span v-on:click='deleteTrip(idx)'> <i class='fa fa-ban'></i> </span>
 	</div>
       </div>
-      <p id = 'filter' v-if="yes"><span class="glyphicon glyphicon-filter"></span> Categories:</p>
+      <p id = 'filter' v-if="yes"><span class="glyphicon glyphicon-filter"></span> Location:</p>
       <div class='checkbox' v-if="yes">
-        <label class="checkbox-inline" >
-        <input type="checkbox" value="" v-on:click.stop="addSelected('Indoor')" checked>Indoor
-        </label>
-        <label class="checkbox-inline"><input type="checkbox" value="" v-on:click.stop="addSelected('Outdoor')" checked>Outdoor</label>
         <label class="checkbox-inline"><input type="checkbox" value="" v-on:click="addSelected('West')" checked>West Campus</label>
         <label class="checkbox-inline"><input type="checkbox" value="" v-on:click="addSelected('East')" checked>East Campus</label>
         <label class="checkbox-inline"><input type="checkbox" value="" v-on:click="addSelected('Central')" checked>Central Campus</label>
-        <label class="checkbox-inline"><input type="checkbox" value="" v-on:click="addSelected('Dining')" checked>Dining</label>
-        <label class="checkbox-inline"><input type="checkbox" value="" v-on:click="addSelected('Education')" checked>Education</label>
-        <label class="checkbox-inline"><input type="checkbox" value="" v-on:click="addSelected('Entertainment')" checked>Entertainment</label>
       </div>
     </div>
 
@@ -37,7 +30,8 @@
           <img v-bind:src="place.imgUrl" v-bind:alt="place.name">
           <div class="caption">
             <h3>{{place.name}}</h3>
-	    <button type='button' class='btn btn-primary btn-sm' v-for='cat in place.categories'> {{cat}}</button>
+	            <button type='button' class='btn btn-primary btn-sm'> {{place.categories1}}</button>
+                <button type='button' class='btn btn-primary btn-sm'> {{place.categories2}}</button>
             <h5>{{place.description}}</h5>
             <p><i class="fa fa-map-marker"></i> {{place.address}}</p>
             <p><button type="button" class="btn btn-danger" v-on:click="add_cart(place)">Add to cart</button></p>
@@ -95,7 +89,7 @@ export default {
       zoom: 14,
       markers: [],
       show: true,
-      selected: ["Indoor", "Outdoor", "West", "East", "Central", "Dining", "Education", "Entertainment"],
+      selected: ["West", "East", "Central", "Dining", "Education", "Entertainment"],
       currentUserUUID: '',
       myTrips: []
     }
@@ -154,12 +148,11 @@ export default {
     },
     checkCategory(a, b){
       for (var i = 0; i < a.length; i++){
-        for (var j = 0; j<b.categories.length; j++){
-          if(a[i] === b.categories[j]){
+          if(a[i] === b.categories1){
             return true;
           }
         }
-      } return false;
+      return false;
     },
     showInfo(m) { 
       m.markerOn = !m.markerOn 
