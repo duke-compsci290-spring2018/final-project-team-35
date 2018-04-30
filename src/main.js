@@ -11,7 +11,6 @@ import * as VueGoogleMaps from 'vue2-google-maps';
 Vue.use(VueRouter);
 
 const router = new VueRouter({ 
-  mode: 'history',
   routes: [
     { path: '/final-project-team-35/', component: MainPage },
     { path: '/final-project-team-35/places', component: PlacePage },
