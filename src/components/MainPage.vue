@@ -13,8 +13,12 @@
   import {ui, uiConfig, firebase, db} from '../firebase.js'
   import * as firebaseui from 'firebaseui'
 
- 
-  const bgUrls = ['/src/assets/Duke_01.png', '/src/assets/Duke_02.jpeg', '/src/assets/Duke_03.jpg', '/src/assets/Duke_04.jpg', '/src/assets/Duke_05.jpg', '/src/assets/Duke_06.jpg']
+  //For Develop
+  //const rootDir = '.'
+  // FOR PRODUCTION
+  const rootDir = '.'
+
+  const bgUrls = [rootDir+'/src/assets/Duke_01.png', rootDir+'/src/assets/Duke_02.jpeg', rootDir+'/src/assets/Duke_03.jpg', rootDir+'/src/assets/Duke_04.jpg', rootDir+'/src/assets/Duke_05.jpg', rootDir+'/src/assets/Duke_06.jpg']
 
 
   export default {
