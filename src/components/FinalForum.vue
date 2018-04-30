@@ -16,7 +16,7 @@
             <button class='ctrls list-inline-item list-group-item' v-on:click='update("numComments")'> HOT </button>
           </li>
           <li class='topCtrl'>
-            <button class='ctrls list-inline-item list-group-item' v-on:click='addPost' v-if='loggedIn'> New Post </button>
+            <button id="upload" class='ctrls list-inline-item list-group-item' v-on:click='addPost' v-if='loggedIn'> New Post </button>
           </li>
         </ul>
       </li>
@@ -160,6 +160,10 @@
   #ban {
     float: right;
     font-size: 18px;
+  }
+  
+  #upload {
+    background: mediumvioletred;
   }
   
   button {

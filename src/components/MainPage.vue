@@ -1,9 +1,6 @@
 <template>
   <div id='main-page' v-bind:style='{ backgroundImage: "url("+bgUrl+")" }'>
     <div id='beforelogin' v-if='init' v-show='!loggedIn'>
-      <div id="license">
-        <footer class="footer"><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</footer>
-      </div>
     </div>
     <div id='afterlogin' v-if='init' v-show='loggedIn'>
       <h1> <i> Welcome to Duke University! </i> </h1>
@@ -92,7 +89,6 @@
     padding: 2% 5%;
     background: rgba(255,255,255,0.4);
     font-family: 'Cinzel', serif;
-    height: 15%;
   }
 
   #afterlogin {
@@ -110,21 +106,12 @@
     
   }
 
-
+  
   #beforelogin input {
     margin-left: 5px;
     font-family: 'PT Sans', sans-serif;
   }
   
-  #license {
-    position: absolute;
-    bottom: 0;
-    font-weight: bold;
-  }
-  
-  #license a {
-    font-weight: bolder;
-    color: firebrick;
-  }
+
   
 </style>
