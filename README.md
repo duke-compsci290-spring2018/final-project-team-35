@@ -15,7 +15,6 @@ Separate repository for Final Project to make it easier to share or experiment w
 - Assets: All images from google images
 - Bugs or Concerns: None
 - What makes your application useful: <br><br>This web is aimed to help people who are interested in looking around the Duke Campus, but don't know what Duke has to offer. This web page offers users to efficiently browse through things to do at Duke using category filters. Also, it will generate a map based on the selections you made and plot it on the google map to see where these places are located to plan a distance-efficient trip. Lastly, it also offers a forum where users could post reviews of the places they visited and comment if they wanted to.
-<br>
 - Special instructions needed to set up, run, access, or use your application (like user passwords you have set up, command line utilities, or external programs that need to be run): <br><br> To create a new account, user can simply enter his/her email on the login page and it will automatically direct to a sign-up menu. After signing up with our website, user can login and use most of the functions of our website. The administrator account is set to ID: admin@gmail.com and password: hello123. Guest could browse through the web page as well, but only signed in users will be able to generate trips and use the forum. Administrators have full access to the website, including authority to delete unappropriate posts of any users in the forum. 
 <br>
 - References for your data that establishes its authenticity: <br><br>
