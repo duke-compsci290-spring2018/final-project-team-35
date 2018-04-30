@@ -10,10 +10,10 @@
     <div id='forum-posts'>
       <div class='forum-post' v-for='(post, idx) in postsInThisPage' v-if='post.visible'> 
         <div class='grey-block' v-on:click='$router.push("/forum/view_post/"+post.key)'>
+          <span v-on:click.stop='deletePost(idx)' v-if='currentUserRole === "admin" || currentUserUUID === post.author_uuid'> 
+                <i id= 'ban' class='fa fa-times'></i>
+          </span>
           <h3> {{post.title}} </h3>
-	  <span v-on:click.stop='deletePost(idx)' v-if='currentUserRole === "admin" || currentUserUUID === post.author_uuid'> 
-	        <i class='fa fa-ban'></i>
-	  </span>
           <p> {{post.likes === undefined ? 0 : post.likes.length }}  <i class="fa fa-heart"></i> <p>
           <p> {{post.views === undefined ? 0 : post.views.length }}  <i class="fa fa-search"></i></p>
           <p> {{post.comments === undefined ? 0 : post.comments.length }}  <i class="fa fa-comments"></i></p>
@@ -127,10 +127,20 @@
   
   #next {
     float: right;
+    cursor: pointer;
+  }
+  
+  #ban:hover {
+    color: grey;
+  }
+  
+  #ban {
+    float: right;
+    font-size: 18px;
   }
   
   button {
-    width: 15%;
+    width: 13.2%;
     color: #fff;
     margin: 3%;
     background: black;
