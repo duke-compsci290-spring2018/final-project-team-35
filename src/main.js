@@ -1,11 +1,11 @@
-import Vue from 'vue';
-import VueRouter from 'vue-router';
-import App from './App.vue';
-import MainPage from './components/MainPage.vue';
-import PlacePage from './components/PlacePage.vue';
-import FinalForum from './components/FinalForum.vue';
-import PostEditor from './components/PostEditor.vue';
-import PostViewer from './components/PostViewer.vue';
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+import App from './App.vue'
+import MainPage from './components/MainPage.vue'
+import PlacePage from './components/PlacePage.vue'
+import FinalForum from './components/FinalForum.vue'
+import PostEditor from './components/PostEditor.vue'
+import PostViewer from './components/PostViewer.vue'
 import * as VueGoogleMaps from 'vue2-google-maps';
 
 Vue.use(VueRouter);
@@ -33,4 +33,4 @@ new Vue({
   el: '#app',
   router: router,
   render: h => h(App)
-});
+})

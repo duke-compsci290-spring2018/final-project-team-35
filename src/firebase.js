@@ -1,5 +1,5 @@
-import Vue from 'vue';
-import * as firebaseui from 'firebaseui';
+import Vue from 'vue'
+import * as firebaseui from 'firebaseui'
 
 const config = {
   apiKey: "AIzaSyDSrlbhDKTzAjtp9OkKnuuNO3gm17D5HUI",
@@ -10,8 +10,8 @@ const config = {
   messagingSenderId: "137642663660"
 };
 
-export const firebase = require('firebase');
-export const db = firebase.initializeApp(config).database();
+export const firebase = require('firebase')
+export const db = firebase.initializeApp(config).database()
 
 export const uiConfig = {
   signInSuccessUrl: '#',
@@ -19,6 +19,6 @@ export const uiConfig = {
     firebase.auth.EmailAuthProvider.PROVIDER_ID
   ],
   credentialHelper: firebaseui.auth.CredentialHelper.GOOGLE_YOLO
-};
+}
 
-export const ui = new firebaseui.auth.AuthUI(firebase.auth());
+export const ui = new firebaseui.auth.AuthUI(firebase.auth())
