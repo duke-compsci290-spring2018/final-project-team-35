@@ -13,8 +13,8 @@ Vue.use(VueRouter);
 const NotFoundComponent = { template: '<div> <h1> Page Not Found </h1> </div>' }
 
 // FOR production
-// const rootDir = '/final-project-team-35'
-const rootDir = ''
+const rootDir = '/final-project-team-35'
+//const rootDir = ''
 
 const router = new VueRouter({ 
   mode: 'history',
