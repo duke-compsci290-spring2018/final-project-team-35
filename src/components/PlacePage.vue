@@ -12,8 +12,8 @@
                     <button type="button" class="btn btn-danger btn-sm removeButton" v-on:click="remove_cart(list), makeLocation()" v-show="yes">Remove</button></li>
               </ul>
               <div id='control'>
-                <button v-on:click="yes=false, makeLocation()" class="generateBtn" v-if="yes">Generate Map</button>
-                <button v-on:click="savePlaces()" class="generateBtn" v-bind:disabled='cart.length === 0'>Save Trip</button>
+                <button v-on:click.stop="yes=false, makeLocation()" class="generateBtn" v-if="yes">Generate Map</button>
+                <button v-on:click.stop="savePlaces()" class="generateBtn" v-bind:disabled='cart.length === 0'>Save Trip</button>
               </div>  
             </div>
           </div>
@@ -25,7 +25,7 @@
               <div class='shoppingCartt' v-on:click='dumpTrip(trip); makeLocation();'>
                 <span class="mini"> {{trip[0] ? (trip[0].name + ' '): ''}} {{trip[1] ? (' & ' + trip[1].name): ''}} 
                   {{trip[2] ? (' & ' + trip[2].name + ' & ..'): ''}} </span>
-                <span v-on:click='deleteTrip(idx)'> <i class='fa fa-times'></i> </span>
+                <span v-on:click.stop='deleteTrip(idx)'> <i class='fa fa-times'></i> </span>
               </div>
             </li>
           </ul>
