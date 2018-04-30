@@ -23,7 +23,7 @@
       <li class='list-group-item'>
         <ul id='forum-posts' class='list-group'>
           <li class='forum-post list-group-item' v-for='(post, idx) in postsInThisPage' v-if='post.visible'> 
-            <div class='grey-block' v-on:click='$router.push("/forum/view_post/"+post.key)'>
+            <div class='grey-block' v-on:click='$router.push("/final-team-project-35/forum/view_post/"+post.key)'>
               <span v-on:click.stop='deletePost(idx)' v-if='currentUserRole === "admin" || currentUserUUID === post.author_uuid'> 
                     <i id= 'ban' class='fa fa-times'></i>
               </span>
