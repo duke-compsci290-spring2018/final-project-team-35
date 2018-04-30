@@ -12,14 +12,21 @@
   import Vue from 'vue'
   import {ui, uiConfig, firebase, db} from '../firebase.js'
   import * as firebaseui from 'firebaseui'
+<<<<<<< HEAD
 
+=======
+>>>>>>> 37bd6705fbcb2769c9409eae0a3bf97df42a766b
   //For Develop
   //const rootDir = '.'
   // FOR PRODUCTION
   const rootDir = '.'
+<<<<<<< HEAD
 
   const bgUrls = [rootDir+'/src/assets/Duke_01.png', rootDir+'/src/assets/Duke_02.jpeg', rootDir+'/src/assets/Duke_03.jpg', rootDir+'/src/assets/Duke_04.jpg', rootDir+'/src/assets/Duke_05.jpg', rootDir+'/src/assets/Duke_06.jpg']
 
+=======
+  const bgUrls = [rootDir+'/src/assets/Duke_01.png', rootDir+'/src/assets/Duke_02.jpeg', rootDir+'/src/assets/Duke_03.jpg', rootDir+'/src/assets/Duke_04.jpg', rootDir+'/src/assets/Duke_05.jpg', rootDir+'/src/assets/Duke_06.jpg']
+>>>>>>> 37bd6705fbcb2769c9409eae0a3bf97df42a766b
   export default {
     created() {
       this.bgUrl = bgUrls[Math.floor(Math.random() * (bgUrls.length-1))]
@@ -67,7 +74,6 @@
 <style>
   @import url('https://fonts.googleapis.com/css?family=Cinzel');
   @import url('https://fonts.googleapis.com/css?family=PT+Sans');
-
   #main-page {
     background-size: cover;
     background-repeat: no-repeat;
@@ -76,7 +82,6 @@
     width: 100%;
     height: 100%;
   }
-
   #beforelogin {
     position: relative;
     width: 70%;
@@ -90,7 +95,6 @@
     background: rgba(255,255,255,0.4);
     font-family: 'Cinzel', serif;
   }
-
   #afterlogin {
     position: relative;
     width: 70%;
@@ -105,13 +109,11 @@
     font-family: 'Cinzel', serif;
     
   }
-
   
   #beforelogin input {
     margin-left: 5px;
     font-family: 'PT Sans', sans-serif;
   }
   
-
   
 </style>

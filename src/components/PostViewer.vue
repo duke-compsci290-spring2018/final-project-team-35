@@ -38,7 +38,10 @@
 <script>
   import Vue from 'vue'
   import {firebase, db} from '../firebase.js'
+<<<<<<< HEAD
 
+=======
+>>>>>>> 37bd6705fbcb2769c9409eae0a3bf97df42a766b
   export default {
     name: 'post-viewer',
     beforeMount() {
@@ -134,22 +137,18 @@
     margin: 4%;
     font-family: 'Roboto Slab', serif;
   }
-
   #post-viewer-comments {
     border-style: ridge;
     padding: 2%;
   }
-
   #post-viewer-title, #post-viewer-body {
     padding-left: 1%;
     overflow: hidden;
   }
-
   #post-viewer-title {
     display: inline-block;
   }
   
-
   i {
     color: firebrick;
   }
@@ -167,18 +166,19 @@
     margin-bottom: 5%;
     display: inline-block;
     margin-left: 0;
-
   }
-
   button:hover {
     background: white;
     color: indianred;
   }
-
   input {
     margin-top: 1%;
     margin-bottom: 2%;
   }
   
   
+<<<<<<< HEAD
 </style>
+=======
+</style>
+>>>>>>> 37bd6705fbcb2769c9409eae0a3bf97df42a766b

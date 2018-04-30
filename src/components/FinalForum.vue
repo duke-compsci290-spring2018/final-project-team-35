@@ -53,7 +53,10 @@
 <script>
   import Vue from 'vue'
   import {db, firebase} from '../firebase.js'
+<<<<<<< HEAD
 
+=======
+>>>>>>> 37bd6705fbcb2769c9409eae0a3bf97df42a766b
   export default {
     name: 'final-forum',
     mounted() {
@@ -172,7 +175,6 @@
     margin: 3%;
     background: black;
   }
-
   #forum-posts {
     padding: 0; 
   }
@@ -185,7 +187,6 @@
   .forum-post {
     background: #fff;
   }
-
   .list-inline {
     display: flex;
     justify-content: space-around;
@@ -230,7 +231,6 @@
   i {
     color: firebrick;
   }
-
   footer {
     text-align: center;
     padding: 2%;

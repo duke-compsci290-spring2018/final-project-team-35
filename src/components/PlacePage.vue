@@ -89,7 +89,10 @@
 <script>
 import Vue from 'vue'
 import {firebase, db} from '../firebase.js'
+<<<<<<< HEAD
 
+=======
+>>>>>>> 37bd6705fbcb2769c9409eae0a3bf97df42a766b
 var placesJSON = require('../assets/places.json');
 export default {
   name: 'place-page',
@@ -187,15 +190,12 @@ export default {
 
 <style scoped>
   @import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
-
   .btn-sm {
     margin-left: 0;
   }
-
   #places{
     margin: 2%;
     font-family: 'Roboto Slab', serif;
-
   }
   .thumbnail{        
     width : 100%;
@@ -212,11 +212,9 @@ export default {
   .places {
       margin: 3%;
   }
-
   .choiceCart h3{
     text-align: center;
   }
-
   .shoppingCart{
       width: 100%;
       color: black;
@@ -257,7 +255,6 @@ export default {
       flex-flow: row, wrap;
       justify-content: space-between;
   }    
-
   .generateBtn{
     background-color: salmon;
     float: center;
@@ -277,7 +274,6 @@ export default {
       border-bottom: solid;
       margin-top: 2%;
   }
-
   .removeButton {
     margin-left: 40%;
   }
