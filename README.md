@@ -6,12 +6,12 @@ Separate repository for Final Project to make it easier to share or experiment w
 - Hours:  100 hours
 - Consulted with: NONE
 - Online Resources: <br> 
-  1. https://www.w3schools.com/ https://css-tricks.com/
-  2. https://developers.google.com/maps/?hl=en
-  3. https://www.gps-coordinates.net/
-  4. https://router.vuejs.org/en/essentials/navigation.html
-  5. https://www.w3schools.com/bootstrap/default.asp
-  6. https://getbootstrap.com/docs/3.3/components
+ 1. https://www.w3schools.com/ https://css-tricks.com/
+ 2. https://developers.google.com/maps/?hl=en
+ 3. https://www.gps-coordinates.net/
+ 4. https://router.vuejs.org/en/essentials/navigation.html
+ 5. https://www.w3schools.com/bootstrap/default.asp
+ 6. https://getbootstrap.com/docs/3.3/components
 - Assets: All images from google images
 - Bugs or Concerns: None
 - What makes your application useful: <br>This web is aimed to help people who are interested in looking around the Duke Campus, but don't know what Duke has to offer. This web page offers users to efficiently browse through things to do at Duke using category filters. Also, it will generate a map based on the selections you made and plot it on the google map to see where these places are located to plan a distance-efficient trip. Lastly, it also offers a forum where users could post reviews of the places they visited and comment if they wanted to.
