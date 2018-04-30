@@ -60,11 +60,11 @@
       return { 
         postInfo: {},
         newComment: '',
-	currentUserUUID: '',
-	currentUserName: '',
-	currentUserRole: '',
-	canLike: false,
-	loaded: false
+        currentUserUUID: '',
+        currentUserName: '',
+        currentUserRole: '',
+        canLike: false,
+        loaded: false
       }
     },
     methods: {
