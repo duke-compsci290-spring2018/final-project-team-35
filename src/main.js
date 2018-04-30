@@ -11,6 +11,7 @@ import * as VueGoogleMaps from 'vue2-google-maps';
 Vue.use(VueRouter);
 
 const router = new VueRouter({ 
+  mode: 'hash',
   routes: [
     { path: '/', component: MainPage },
     { path: '/places', component: PlacePage },
