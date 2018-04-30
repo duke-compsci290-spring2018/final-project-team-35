@@ -7,7 +7,8 @@
         "description": "Magnificent chapel built in gothic architecutre serving as the main building at Duke University",
         "categories": [
             "Indoor",
-            "West"
+            "West",
+            "Entertainment"
         ],
         "imgUrl": "./src/assets/chapel.png"
     },
@@ -31,7 +32,6 @@
         "categories": [
             "Indoor",
             "Central",
-            "Education",
             "Entertainment"
         ],
         "imgUrl": "./src/assets/Nasher_museum.png"
@@ -56,8 +56,7 @@
         "categories": [
             "Indoor",
             "West",
-            "Dining",
-            "Entertainment"
+            "Dining"
         ],
         "imgUrl": "./src/assets/WestUnion.jpeg"
     },
@@ -176,6 +175,7 @@
         "description": "Buy souvenirs for you and your friends!",
         "categories": [
             "Indoor",
+            "West",
             "Entertainment"
         ],
         "imgUrl": "./src/assets/DuStore.png"
