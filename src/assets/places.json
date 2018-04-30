@@ -7,7 +7,7 @@
         "description": "Magnificent chapel built in gothic architecutre serving as the main building at Duke University",
         "categories1": "West",
         "categories2": "Entertainment",
-        "imgUrl": "./src/assets/chapel.png"
+        "imgUrl": "/final-project-team-35/src/assets/chapel.png"
     },
     {
         "name": "Perkins Library",
@@ -16,7 +16,7 @@
         "description": "Home for many students who enjoy studying in a public place",
         "categories1": "West",
         "categories2": "Education",
-        "imgUrl": "./src/assets/Perkins_Library.jpeg"
+        "imgUrl": "/final-project-team-35/src/assets/Perkins_Library.jpeg"
     },
       {
         "name": "Nasher Museum of Arts",
@@ -25,7 +25,7 @@
         "description": "Art museum with collections of creative and amazing art works",
         "categories1": "Central",
         "categories2": "Entertainment",
-        "imgUrl": "./src/assets/Nasher_museum.png"
+        "imgUrl": "/final-project-team-35/src/assets/Nasher_museum.png"
     },
     {
         "name": "Devil's Bistro",
@@ -34,7 +34,7 @@
         "description": "Dining place for students living at central campus",
         "categories1": "Central",
         "categories2": "Dining",
-        "imgUrl": "./src/assets/DevilsBistro.jpg"
+        "imgUrl": "/final-project-team-35/src/assets/DevilsBistro.JPG"
     },
     {
         "name": "Brodhead Center",
@@ -43,7 +43,7 @@
         "description": "Recently renovated building that brings people together by dining, studying, and socializing",
         "categories1": "West",
         "categories2": "Dining",
-        "imgUrl": "./src/assets/WestUnion.jpeg"
+        "imgUrl": "/final-project-team-35/src/assets/WestUnion.jpeg"
     },
     {
         "name": "Duke Lemur Center",
@@ -52,7 +52,7 @@
         "description": "Place to see world's largest and most diverse collections of lemurs",
         "categories1": "West",
         "categories2": "Entertainment",
-        "imgUrl": "./src/assets/LemurCenter.png"
+        "imgUrl": "/final-project-team-35/src/assets/LemurCenter.png"
     },
     {
         "name": "Sarah P. Duke Gardens",
@@ -61,7 +61,7 @@
         "description": "55 acres large garden with full of flowers and a beautiful pond",
         "categories1": "Central",
         "categories2": "Entertainment",
-        "imgUrl": "./src/assets/garden.jpg"
+        "imgUrl": "/final-project-team-35/src/assets/garden.jpg"
     },
     {
         "name": "Baldwin Auditorium",
@@ -70,7 +70,7 @@
         "description": "Classic Georgian auditorium where great musical performances happen",
         "categories1": "East",
         "categories2": "Entertainment",
-        "imgUrl": "./src/assets/Baldwin.jpg"
+        "imgUrl": "/final-project-team-35/src/assets/Baldwin.jpg"
     },
     {
         "name": "Cameron Indoor Stadium",
@@ -79,7 +79,7 @@
         "description": "Home of Duke basketball and coach K, where all the passion is",
         "categories1": "West",
         "categories2": "Entertainment",
-        "imgUrl": "./src/assets/cameron.jpg"
+        "imgUrl": "/final-project-team-35/src/assets/cameron.jpg"
     },
         {
         "name": "Puppy Center",
@@ -88,7 +88,7 @@
         "description": "Look at everybody's favorite, retriever puppies, Kyler and Ernie!",
         "categories1": "West",
         "categories2": "Entertainment",
-        "imgUrl": "./src/assets/puppy.jpg"
+        "imgUrl": "/final-project-team-35/src/assets/puppy.jpg"
     },
     {
         "name": "Wallace Wade Stadium",
@@ -97,7 +97,7 @@
         "description": "Recently renovated football stadium which also holds the graduation ceremony at Duke",
         "categories1": "West",
         "categories2": "Entertainment",
-        "imgUrl": "./src/assets/wallace.jpg"
+        "imgUrl": "/final-project-team-35/src/assets/wallace.jpg"
     },
     {
         "name": "Washington Duke Inn & Golf Club",
@@ -106,7 +106,7 @@
         "description": "Enjoy an amazing round of golf during your visit at Duke!",
         "categories1": "West",
         "categories2": "Entertainment",
-        "imgUrl": "./src/assets/WaDuke.jpg"
+        "imgUrl": "/final-project-team-35/src/assets/WaDuke.jpg"
     },
     {
         "name": "The Commons",
@@ -115,7 +115,7 @@
         "description": "A fancy dine at Duke",
         "categories1": "West",
         "categories2": "Dining",
-        "imgUrl": "./src/assets/TheCommons.png"
+        "imgUrl": "/final-project-team-35/src/assets/TheCommons.png"
     },
     {
         "name": "Divinity Cafe",
@@ -124,7 +124,7 @@
         "description": "The best grilled cheese sandwich you can get in Durham",
         "categories1": "West",
         "categories2": "Dining",
-        "imgUrl": "./src/assets/divinity.jpg"
+        "imgUrl": "/final-project-team-35/src/assets/Divinity.jpg"
     },
     {
         "name": "Duke University Stores",
@@ -133,7 +133,7 @@
         "description": "Buy souvenirs for you and your friends!",
         "categories1": "West",
         "categories2": "Entertainment",
-        "imgUrl": "./src/assets/DuStore.png"
+        "imgUrl": "/final-project-team-35/src/assets/DuStore.png"
     },
     {
         "name": "Duke Coffeehouse",
@@ -142,7 +142,7 @@
         "description": "Enjoy a cup of coffee with great music!",
         "categories1": "East",
         "categories2": "Dining",
-        "imgUrl": "./src/assets/DuCoffee.jpg"
+        "imgUrl": "/final-project-team-35/src/assets/DuCoffee.jpg"
     },
     {
         "name": "Marketplace",
@@ -151,7 +151,7 @@
         "description": "The dining place you would use if you come to DUke as a freshman!",
         "categories1": "East",
         "categories2": "Dining",
-        "imgUrl": "./src/assets/Marketplace.jpg"
+        "imgUrl": "/final-project-team-35/src/assets/Marketplace.jpg"
     }
     ]
 }

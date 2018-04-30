@@ -10,20 +10,14 @@ import * as VueGoogleMaps from 'vue2-google-maps';
 
 Vue.use(VueRouter);
 
-const NotFoundComponent = { template: '<div> <h1> Page Not Found </h1> </div>' }
-
-// FOR production
-// const rootDir = '/final-project-team-35'
-const rootDir = ''
-
 const router = new VueRouter({ 
   mode: 'hash',
   routes: [
-    { path: rootDir+'/', component: MainPage },
-    { path: rootDir+'/places', component: PlacePage },
-    { path: rootDir+'/forum', component: FinalForum },
-    { path: rootDir+'/forum/edit_post', name: 'post-editor', component: PostEditor, props: true },
-    { path: rootDir+'/forum/view_post/:postKey', component: PostViewer },
+    { path: '/', component: MainPage },
+    { path: '/places', component: PlacePage },
+    { path: '/forum', component: FinalForum },
+    { path: '/forum/edit_post', name: 'post-editor', component: PostEditor, props: true },
+    { path: '/forum/view_post/:postKey', component: PostViewer },
     { path: '*', component: MainPage }
   ]
 });
