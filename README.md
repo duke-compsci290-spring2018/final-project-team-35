@@ -18,8 +18,9 @@ Separate repository for Final Project to make it easier to share or experiment w
 <br>
 - Special instructions needed to set up, run, access, or use your application (like user passwords you have set up, command line utilities, or external programs that need to be run): <br><br> To create a new account, user can simply enter his/her email on the login page and it will automatically direct to a sign-up menu. After signing up with our website, user can login and use most of the functions of our website. The administrator account is set to ID: admin@gmail.com and password: hello123. Guest could browse through the web page as well, but only signed in users will be able to generate trips and use the forum. Administrators have full access to the website, including authority to delete unappropriate posts of any users in the forum. 
 <br>
-- References for your data that establishes its authenticity: <br>
-  1. https://www.tripadvisor.com/AttractionsNear-g49092-d293634-Duke_University-Durham_North_Carolina.html (World widely used trip website that people use today)
-  2. https://sites.duke.edu/admissionsambassadors/files/2017/09/Tour-Guide-Manual-17-18.pdf (Official tour guide made by Duke University) 
+- References for your data that establishes its authenticity: <br><br>
+  1. https://www.tripadvisor.com/AttractionsNear-g49092-d293634-Duke_University-Durham_North_Carolina.html (World widely used trip website that people use today)<br>
+  2. https://sites.duke.edu/admissionsambassadors/files/2017/09/Tour-Guide-Manual-17-18.pdf (Official tour guide made by Duke University) <br>
+<br>
 - Discuss both the pros and the cons of different framework possibilities you considered and why you made the decision you did (including choosing not to use any framework): <br>We were  bebebe
  
