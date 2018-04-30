@@ -17,7 +17,7 @@ const NotFoundComponent = { template: '<div> <h1> Page Not Found </h1> </div>' }
 const rootDir = ''
 
 const router = new VueRouter({ 
-  mode: 'history',
+  mode: 'hash',
   routes: [
     { path: rootDir+'/', component: MainPage },
     { path: rootDir+'/places', component: PlacePage },
