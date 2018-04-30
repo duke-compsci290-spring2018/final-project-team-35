@@ -6,9 +6,11 @@
     <div id='post-viwer-contents'>
       <div id='post-viewer-title'>
         <h1> {{ postInfo.title }}</h1>
-	<p> {{ postInfo.likes.length }} <i class="fa fa-heart"></i> <p>
-	<p> {{ postInfo.views.length }} <i class="fa fa-search"></i></p>
-	<p> {{ postInfo.comments.length }} <i class="fa fa-comments"></i></p>
+        <div id='icons'>
+          <p> {{ postInfo.likes.length }} <i class="fa fa-heart"></i> <p>
+          <p> {{ postInfo.views.length }} <i class="fa fa-search"></i></p>
+          <p> {{ postInfo.comments.length }} <i class="fa fa-comments"></i></p>
+        </div>
       </div>
       <button v-on:click='like' v-if='currentUserUUID != "" && canLike'> LIKE <i class="fa fa-heart"></i></button>
       <button v-on:click='unlike' v-if='currentUserUUID != "" && !canLike'> UNLIKE <i class="fa fa-heart"></i></button>
@@ -60,11 +62,11 @@
       return { 
         postInfo: {},
         newComment: '',
-	currentUserUUID: '',
-	currentUserName: '',
-	currentUserRole: '',
-	canLike: false,
-	loaded: false
+        currentUserUUID: '',
+        currentUserName: '',
+        currentUserRole: '',
+        canLike: false,
+        loaded: false
       }
     },
     methods: {
@@ -143,6 +145,15 @@
     overflow: hidden;
   }
 
+  #post-viewer-body {
+    text-decoration: underline;
+  }
+  
+
+  i {
+    color: firebrick;
+  }
+  
   button {
     width: 10%;
     color: white;
@@ -164,6 +175,6 @@
     margin-bottom: 2%;
   }
   
-
+  
 </style>
 
