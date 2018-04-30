@@ -9,17 +9,17 @@
 </template>
 
 <script>
-  import Vue from 'vue'
-  import VueQuillEditor from 'vue-quill-editor'
+  import Vue from 'vue';
+  import VueQuillEditor from 'vue-quill-editor';
   import Quill from 'quill';
-  import 'quill/dist/quill.core.css'
-  import 'quill/dist/quill.snow.css'
-  import 'quill/dist/quill.bubble.css'
+  import 'quill/dist/quill.core.css';
+  import 'quill/dist/quill.snow.css';
+  import 'quill/dist/quill.bubble.css';
   import ImageResize from 'quill-image-resize-module';
-  import {db, firebase} from '../firebase.js'
+  import {db, firebase} from '../firebase.js';
   
   Quill.register('modules/imageResize', ImageResize);
-  Vue.use(VueQuillEditor)
+  Vue.use(VueQuillEditor);
   
   const toolbarOptions = [
     ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
@@ -44,10 +44,10 @@
   export default {
     name: 'post-editor',
     mounted() {
-      firebase.auth().onAuthStateChanged( this.userChangeHandler )
+      firebase.auth().onAuthStateChanged( this.userChangeHandler );
     },
     created() {
-      this.postInfo = this.$route.params.postInfo
+      this.postInfo = this.$route.params.postInfo;
     },
     data() {
       return { 
@@ -61,30 +61,30 @@
 	currentUserUUID: '',
 	currentUserName: '',
 	currentUserRole: ''
-      }
+      };
     },
     methods: {
       addPost: function() {
-        var pi = this.postInfo
+        var pi = this.postInfo;
 
-        var curTime = Math.floor(Date.now() / 1000) 
+        var curTime = Math.floor(Date.now() / 1000) ;
         if(pi['created_at'] === undefined)
-        pi['created_at'] = curTime
-        pi['updated_at'] = curTime
-        pi['visible'] = true
-        pi['views'] = pi['likes'] = []
-        pi['numViews'] = pi['numLikes'] = pi['numComments'] = 0
-        pi['author_uuid'] = this.currentUserUUID
-	pi['author_name'] = this.currentUserName
-        pi['author_role'] = this.currentUserRole
-        pi['comments'] = []
+        pi['created_at'] = curTime;
+        pi['updated_at'] = curTime;
+        pi['visible'] = true;
+        pi['views'] = pi['likes'] = [];
+        pi['numViews'] = pi['numLikes'] = pi['numComments'] = 0;
+        pi['author_uuid'] = this.currentUserUUID;
+				pi['author_name'] = this.currentUserName;
+        pi['author_role'] = this.currentUserRole;
+        pi['comments'] = [];
 
-        var ref = null
-        if(pi['key'] === undefined) ref = db.ref('/posts').push()
-        else ref = db.ref('/posts/'+pi['key'])
-        delete pi['key']
+        var ref = null;
+        if(pi['key'] === undefined) ref = db.ref('/posts').push();
+        else ref = db.ref('/posts/'+pi['key']);
+        delete pi['key'];
 
-        ref.set(pi)
+        ref.set(pi);
       },
       userChangeHandler: function(user) {
 	Vue.set(this, 'currentUserUUID', user ? user.uid : '');
@@ -92,14 +92,14 @@
 	  Vue.set(this, 'currentUserName', user.displayName);
 	  db.ref('/users/'+this.currentUserUUID+'/role').once('value').then(data => {
 	    Vue.set(this, 'currentUserRole', data.val());
-	  })
+	  });
 	} else {
 	  Vue.set(this, 'currentUserName', 'Guest');
 	  Vue.set(this, 'currentUserRole', 'guest');
 	}
       }
     }
-  }
+  };
 
 </script>
 

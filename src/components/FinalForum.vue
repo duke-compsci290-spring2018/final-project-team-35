@@ -57,18 +57,18 @@
   export default {
     name: 'final-forum',
     mounted() {
-      firebase.auth().onAuthStateChanged( this.userChangeHandler )      
+      firebase.auth().onAuthStateChanged( this.userChangeHandler );  
     },
     computed: {
       postsInThisPage: function() {
-        var ret = []
-        var startingIdx = (this.page-1)*this.limit
+        var ret = [];
+        var startingIdx = (this.page-1)*this.limit;
         for(var idx = startingIdx ; idx < Math.min(startingIdx+this.limit, this.posts.length) ; idx ++)
-      	  ret.push(this.posts[idx])
-        return ret
+      	  ret.push(this.posts[idx]);
+        return ret;
       },
       maxPage: function() {
-        return Math.floor((this.posts.length-1)/this.limit)+1
+        return Math.floor((this.posts.length-1)/this.limit)+1;
       },
       authorName: function() {
           // user.displayName <- google api <- author_uuid 
@@ -83,23 +83,23 @@
         loggedIn: false,
         currentUserUUID: '',
         currentUserRole: ''
-      }
+      };
     },
     methods: {
       update: function(criteria) {
-        Vue.set(this, 'posts', [])
+        Vue.set(this, 'posts', []);
         db.ref('/posts')
           .orderByChild(criteria)
           .once('value').then( data => {
             data.forEach(d => { 
 	      if(d.val().visible) {
-                var that = d.val()
-                that['key'] = d.key
-                this.posts.push(that)
+                var that = d.val();
+                that['key'] = d.key;
+                this.posts.push(that);
 	      }
-	    })
-	  this.posts = this.posts.reverse()
-	})
+	    });
+	  this.posts = this.posts.reverse();
+	});
       },
       addPost: function() {
         this.$router.push({
@@ -111,28 +111,28 @@
       	      author_uuid: this.uuid
       	    }
       	  }
-        })
+        });
       },
       deletePost: function(idx) {
 	Vue.set(this.posts[idx], 'visible', false);
 	db.ref('/posts/'+this.posts[idx].key).set(this.posts[idx]);
       },
       userChangeHandler: function(user) {
-        this.loggedIn = user != null
+        this.loggedIn = user !== null;
 	this.currentUserUUID = user ? user.uid : '';
 	if(user) {
 	  db.ref('/users/'+this.currentUserUUID+'/role').once('value').then(data => {
 	    Vue.set(this, 'currentUserRole', data.val()); 
-	  })
+	  });
 	} else {
 	  Vue.set(this, 'currentUserRole', 'guest');
 	}
       }
     },
     beforeMount() {
-      this.update('updated_at')
+      this.update('updated_at');
     }
-  }
+  };
 </script>
 
 

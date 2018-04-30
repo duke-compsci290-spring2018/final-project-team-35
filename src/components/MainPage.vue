@@ -13,55 +13,54 @@
   import {ui, uiConfig, firebase, db} from '../firebase.js'
   import * as firebaseui from 'firebaseui'
 
+
   //For Develop
   //const rootDir = '.'
   // FOR PRODUCTION
-  const rootDir = '.'
+  const rootDir = '.';
 
-  const bgUrls = [rootDir+'/src/assets/Duke_01.png', rootDir+'/src/assets/Duke_02.jpeg', rootDir+'/src/assets/Duke_03.jpg', rootDir+'/src/assets/Duke_04.jpg', rootDir+'/src/assets/Duke_05.jpg', rootDir+'/src/assets/Duke_06.jpg']
+  const bgUrls = [rootDir+'/src/assets/Duke_01.png', rootDir+'/src/assets/Duke_02.jpeg', rootDir+'/src/assets/Duke_03.jpg', rootDir+'/src/assets/Duke_04.jpg', rootDir+'/src/assets/Duke_05.jpg', rootDir+'/src/assets/Duke_06.jpg'];
 
   export default {
     created() {
-      this.bgUrl = bgUrls[Math.floor(Math.random() * (bgUrls.length-1))]
-      console.log(this.bgUrl)
+      this.bgUrl = bgUrls[Math.floor(Math.random() * (bgUrls.length-1))];
     },
     mounted() {
-      firebase.auth().onAuthStateChanged( this.userChangeHandler )
-      Vue.set(this, 'init', true)
+      firebase.auth().onAuthStateChanged( this.userChangeHandler );
+      Vue.set(this, 'init', true);
     },
     data() {
       return {
         user: undefined,
         init: false,
         bgUrl: ''
-      }
+      };
     },
     computed: {
       loggedIn: function() {
-        return this.user != null
+        return this.user !== null;
       }
     },
     methods: {
       userChangeHandler: function(user) {
-        this.user = user
+        this.user = user;
 	if(user) {
 	  db.ref('/users/'+this.user.uid)
 	    .once('value').then(data => {
 	    var cnt = 0;
-	    data.forEach(d => { cnt = cnt + 1; } )
-	    if(cnt == 0) {
+	    data.forEach(d => { cnt = cnt + 1; } );
+	    if(cnt === 0) {
 	      db.ref('/users/'+this.user.uid).set({
 		name: this.user.displayName,
 		role: 'user'
-	      })
+	      });
 	    }
-	  })
+	  });
 	}
-        ui.start('#beforelogin', uiConfig)
-	console.log(user)
+        ui.start('#beforelogin', uiConfig);
       }
     }
-  }
+  };
 </script>
 
 <style>
