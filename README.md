@@ -21,6 +21,6 @@ Separate repository for Final Project to make it easier to share or experiment w
 - References for your data that establishes its authenticity: 
   1. https://www.tripadvisor.com/AttractionsNear-g49092-d293634-Duke_University-Durham_North_Carolina.html (World widely used trip website that people use today)<br>
   2. https://sites.duke.edu/admissionsambassadors/files/2017/09/Tour-Guide-Manual-17-18.pdf (Official tour guide made by Duke University) <br>
-- Discuss both the pros and the cons of different framework possibilities you considered and why you made the decision you did (including choosing not to use any framework): 
+- Discuss both the pros and the cons of different framework possibilities you considered and why you made the decision you did (including choosing not to use any framework): <br>
     We used vue and node.js because we decided to use components to create our web page. We also used vue router because we didn't want our page to reload every single time when user wanted to move to a different tab. It makes the user experience faster and more intuitive when using our website. We also liked the multiple tags vue had like v-if and v-for which was crucial in developing our website. We did look into other frameworks like angular and react, but vue was much lighter and easier to implement since we had a lot of experience with it throughout the entire semester. 
  
