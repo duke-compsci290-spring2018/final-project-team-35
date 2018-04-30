@@ -92,6 +92,7 @@
     padding: 2% 5%;
     background: rgba(255,255,255,0.4);
     font-family: 'Cinzel', serif;
+    height: 15%;
   }
 
   #afterlogin {
