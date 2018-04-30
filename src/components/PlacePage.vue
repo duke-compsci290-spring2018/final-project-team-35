@@ -12,7 +12,7 @@
       </div>
       <div id='myTrips'> 
 	<div class='shoppingCart' v-for='(trip, idx) in myTrips' v-on:click='dumpTrip(trip); makeLocation();'>
-	  <p> {{ trip[0].name }} .. {{trip[1] ? (trip[1].name + '..'): ''}} {{trip[2] ? (trip[2].name + '..'): ''}} </p>
+	  <p> {{trip[0] ? (trip[0].name + '..'): ''}} .. {{trip[1] ? (trip[1].name + '..'): ''}} {{trip[2] ? (trip[2].name + '..'): ''}} </p>
 	  <span v-on:click='deleteTrip(idx)'> <i class='fa fa-ban'></i> </span>
 	</div>
       </div>
@@ -66,7 +66,6 @@
   </div>
 
 </template>
-
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFZB_0uAerF2GJSXCxssPRPgNNDzSH4ow&callback=initMap">
 </script>
@@ -89,7 +88,7 @@ export default {
       zoom: 14,
       markers: [],
       show: true,
-      selected: ["West", "East", "Central", "Dining", "Education", "Entertainment"],
+      selected: ["West", "East", "Central"],
       currentUserUUID: '',
       myTrips: []
     }
