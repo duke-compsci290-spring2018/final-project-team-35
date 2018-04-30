@@ -36,8 +36,8 @@
 </template>
 
 <script>
-  import Vue from 'vue';
-  import {firebase, db} from '../firebase.js';
+  import Vue from 'vue'
+  import {firebase, db} from '../firebase.js'
 
   export default {
     name: 'post-viewer',
@@ -45,18 +45,18 @@
       db.ref('/posts/'+this.$route.params.postKey)
         .once('value').then( data => {
 	  data.forEach( d => {
-      	    Vue.set(this.postInfo, d.key, d.val());
-      	  });
+      	    Vue.set(this.postInfo, d.key, d.val())
+      	  })
       	  if(this.postInfo.length === 0)
-      	    this.$router.replace('/');
-      	  if(this.postInfo['comments'] === undefined);
-      	    Vue.set(this.postInfo, 'comments', []);
+      	    this.$router.replace('/')
+      	  if(this.postInfo['comments'] === undefined)
+      	    Vue.set(this.postInfo, 'comments', [])
 	  if(this.postInfo['likes'] === undefined)
-      	    Vue.set(this.postInfo, 'likes', []);
+      	    Vue.set(this.postInfo, 'likes', [])
 	  if(this.postInfo['views'] === undefined)
-      	    Vue.set(this.postInfo, 'views', []);
-	  firebase.auth().onAuthStateChanged( this.userChangeHandler );
-      });
+      	    Vue.set(this.postInfo, 'views', [])
+	  firebase.auth().onAuthStateChanged( this.userChangeHandler )
+      })
     },
     data() {
       return { 
@@ -67,7 +67,7 @@
         currentUserRole: '',
         canLike: false,
         loaded: false
-      };
+      }
     },
     methods: {
       addComment: function() {
@@ -76,7 +76,7 @@
 	  author_uuid: this.currentUserUUID,
       	  contents: this.newComment,
       	  created_at: Math.floor(Date.now() / 1000)
-        });
+        })
         db.ref('/posts/'+this.$route.params.postKey+'/comments').set(this.postInfo.comments);
         db.ref('/posts/'+this.$route.params.postKey+'/numComments').set(this.postInfo.comments.length);
         this.newComment = '';
@@ -87,29 +87,29 @@
 	db.ref('/posts/'+this.$route.params.postKey+'/numComments').set(this.postInfo.comments.length);
       },
       like: function() {
-	this.postInfo.likes.push(this.currentUserUUID);
-	db.ref('/posts/'+this.$route.params.postKey+'/likes').set(this.postInfo.likes);
-	db.ref('/posts/'+this.$route.params.postKey+'/numLikes').set(this.postInfo.likes.length);
-	Vue.set(this, 'canLike', false);
+	this.postInfo.likes.push(this.currentUserUUID)
+	db.ref('/posts/'+this.$route.params.postKey+'/likes').set(this.postInfo.likes)
+	db.ref('/posts/'+this.$route.params.postKey+'/numLikes').set(this.postInfo.likes.length)
+	Vue.set(this, 'canLike', false)
       },
       unlike: function() {
 	this.postInfo.likes.splice(this.postInfo.likes.indexOf(this.currentUserUUID), 1);
-	db.ref('/posts/'+this.$route.params.postKey+'/likes').set(this.postInfo.likes);
-	Vue.set(this, 'canLike', true);
+	db.ref('/posts/'+this.$route.params.postKey+'/likes').set(this.postInfo.likes)
+	Vue.set(this, 'canLike', true)
       },
       userChangeHandler: function(user) {
-	this.loaded = true;
+	this.loaded = true
 	if(user) {
 	  Vue.set(this, 'currentUserUUID', user.uid);
 	  Vue.set(this, 'currentUserName', user.displayName.split(' ')[0]);
 	  db.ref('/users/'+this.currentUserUUID+'/role').once('value').then(data => {
 	    Vue.set(this, 'currentUserRole', data.val()); 
-	  });
+	  })
 	  Vue.set(this, 'canLike', this.postInfo.likes.indexOf(this.currentUserUUID) < 0);
 	  if(this.postInfo.views.indexOf(this.currentUserUUID) < 0) {
 	    this.postInfo.views.push(this.currentUserUUID);
-	    db.ref('/posts/'+this.$route.params.postKey+'/views').set(this.postInfo.views);
-	    db.ref('/posts/'+this.$route.params.postKey+'/numViews').set(this.postInfo.views.length);
+	    db.ref('/posts/'+this.$route.params.postKey+'/views').set(this.postInfo.views)
+	    db.ref('/posts/'+this.$route.params.postKey+'/numViews').set(this.postInfo.views.length)
 	  }
 	} else {
 	  Vue.set(this, 'currentUserUUID', '');
@@ -119,10 +119,10 @@
 	}
       },
       prettify: function(timestamp) {
-	return (new Date(timestamp*1000).toLocaleString());
+	return (new Date(timestamp*1000).toLocaleString())
       }
     }
-  };
+  }
 </script>
 
 <style scoped>
@@ -182,4 +182,3 @@
   
   
 </style>
-
