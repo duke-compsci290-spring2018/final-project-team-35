@@ -1,29 +1,66 @@
 <template>
   <div id='post-editor'>
     <input v-model='postInfo.title' placeholder=" Title:">
-    <vue-quill-editor v-model.sync='postInfo.html'></vue-quill-editor>
+    <quill-editor ref='myQuillEditor' v-model.sync='postInfo.html' v-bind:options='editorOption'></quill-editor>
     <button class='blue-button' v-on:click='addPost(); $router.go(-1);'> Submit </button>
     <button class='blue-button' v-on:click='$router.go(-1)'> Cancel </button>
   </div>
 </template>
 
 <script>
+  import Vue from 'vue'
   import VueQuillEditor from 'vue-quill-editor'
+  import Quill from 'quill';
   import 'quill/dist/quill.core.css'
   import 'quill/dist/quill.snow.css'
   import 'quill/dist/quill.bubble.css'
-  import {db} from '../firebase.js'
+  import ImageResize from 'quill-image-resize-module';
+  import {db, firebase} from '../firebase.js'
+  
+  Quill.register('modules/imageResize', ImageResize);
+  Vue.use(VueQuillEditor)
+  
+  const toolbarOptions = [
+    ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+    ['blockquote', 'code-block'],
+  
+    [{ 'header': 1 }, { 'header': 2 }],               // custom button values
+    [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+    [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
+    [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
+    [{ 'direction': 'rtl' }],                         // text direction
+  
+    [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
+    [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+  
+    [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+    [{ 'font': [] }],
+    [{ 'align': [] }, 'image'],
+  
+    ['clean']                                         // remove formatting button
+  ];
 
   export default {
     name: 'post-editor',
-    components: {
-      VueQuillEditor: VueQuillEditor.quillEditor
+    mounted() {
+      firebase.auth().onAuthStateChanged( this.userChangeHandler )
     },
     created() {
       this.postInfo = this.$route.params.postInfo
     },
     data() {
-      return { postInfo: {} }
+      return { 
+        postInfo: {},
+        editorOption: {
+          modules: {
+            imageResize: {},
+            toolbar: toolbarOptions
+          }
+        },
+	currentUserUUID: '',
+	currentUserName: '',
+	currentUserRole: ''
+      }
     },
     methods: {
       addPost: function() {
@@ -34,8 +71,11 @@
         pi['created_at'] = curTime
         pi['updated_at'] = curTime
         pi['visible'] = true
-        pi['views'] = pi['likes'] = 0
-        pi['author_uuid'] = 'wfjqwpifj'
+        pi['views'] = pi['likes'] = []
+        pi['numViews'] = pi['numLikes'] = pi['numComments'] = 0
+        pi['author_uuid'] = this.currentUserUUID
+	pi['author_name'] = this.currentUserName
+        pi['author_role'] = this.currentUserRole
         pi['comments'] = []
 
         var ref = null
@@ -44,7 +84,19 @@
         delete pi['key']
 
         ref.set(pi)
-      }      
+      },
+      userChangeHandler: function(user) {
+	Vue.set(this, 'currentUserUUID', user ? user.uid : '');
+	if(user) {
+	  Vue.set(this, 'currentUserName', user.displayName);
+	  db.ref('/users/'+this.currentUserUUID+'/role').once('value').then(data => {
+	    Vue.set(this, 'currentUserRole', data.val());
+	  })
+	} else {
+	  Vue.set(this, 'currentUserName', 'Guest');
+	  Vue.set(this, 'currentUserRole', 'guest');
+	}
+      }
     }
   }
 

@@ -13,7 +13,7 @@
 
 <script>
   import Vue from 'vue'
-  import {ui, uiConfig, firebase} from '../firebase.js'
+  import {ui, uiConfig, firebase, db} from '../firebase.js'
   import * as firebaseui from 'firebaseui'
 
   const rootDir = '.'
@@ -46,9 +46,22 @@
     methods: {
       userChangeHandler: function(user) {
         this.user = user
+	if(user) {
+	  db.ref('/users/'+this.user.uid)
+	    .once('value').then(data => {
+	    var cnt = 0;
+	    data.forEach(d => { cnt = cnt + 1; } )
+	    if(cnt == 0) {
+	      db.ref('/users/'+this.user.uid).set({
+		name: this.user.displayName,
+		role: 'user'
+	      })
+	    }
+	  })
+	}
         ui.start('#beforelogin', uiConfig)
+	console.log(user)
       }
-
     }
   }
 </script>

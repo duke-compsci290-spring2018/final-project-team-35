@@ -1,24 +1,33 @@
 <template>
-  <div id='post-viewer'>
+  <div id='post-viewer' v-if='loaded'>
     <div id='post-viewer-sidebar'> 
-      <p> Posted by {{ postInfo.author_uuid }}</p>
+      <p> Posted by {{ postInfo.author_name }} {{ postInfo.author_role === 'admin' ? '(admin)' : '' }}</p>
     </div>
     <div id='post-viwer-contents'>
       <div id='post-viewer-title'>
         <h1> {{ postInfo.title }}</h1>
-        <p> {{ postInfo.likes.length }} </p>
+	<p> {{ postInfo.likes.length }} <i class="fa fa-heart"></i> <p>
+	<p> {{ postInfo.views.length }} <i class="fa fa-search"></i></p>
+	<p> {{ postInfo.comments.length }} <i class="fa fa-comments"></i></p>
       </div>
-      <button v-on:click='like' v-bind:disabled='alreadyLiked'> LIKE <i class="fa fa-heart"></i></button>
-      <div id='post-viewer-body' v-html='postInfo.html'>
+      <button v-on:click='like' v-if='currentUserUUID != "" && canLike'> LIKE <i class="fa fa-heart"></i></button>
+      <button v-on:click='unlike' v-if='currentUserUUID != "" && !canLike'> UNLIKE <i class="fa fa-heart"></i></button>
+      <div id='post-viewer-body'>
+        <div id='post-viwer-html' v-html='postInfo.html'>
+        </div>
       </div>
       <div id='post-viewer-comments'>
-        <div class='grey-block'>
+        <div class='grey-block' v-if='currentUserUUID != ""'>
+	  <p style='display: inline-block;'> {{ currentUserName }}: </p>
           <input v-model='newComment' v-on:keydown.enter='addComment' placeholder="Comment">
         </div>
-        <div class='grey-block' v-for='comment in postInfo.comments'>
-          {{ comment.author_uuid }} : {{ comment.contents }} : {{ comment.created_at }}
+        <div class='grey-block' v-for='(comment, idx) in postInfo.comments'>
+	  <p> {{ comment.author_name }}: {{ comment.contents }} - {{ prettify(comment.created_at) }} </p>
+	  <span v-on:click='deleteComment(idx)' 
+	     v-if='currentUserRole === "admin" || currentUserUUID === comment.author_uuid'> 
+	      <i class='fa fa-ban'></i>
+	  </span>
         </div>
-        
       </div>
     </div>
   </div>
@@ -26,45 +35,89 @@
 
 <script>
   import Vue from 'vue'
-  import {db} from '../firebase.js'
+  import {firebase, db} from '../firebase.js'
 
   export default {
     name: 'post-viewer',
-    created() {
+    beforeMount() {
       db.ref('/posts/'+this.$route.params.postKey)
         .once('value').then( data => {
-      data.forEach( d => {
-        Vue.set(this.postInfo, d.key, d.val())
-      })
-      if(this.postInfo.length === 0)
-        this.$router.replace('/')
-      if(this.postInfo['comments'] === undefined)
-        Vue.set(this.postInfo, 'comments', [])
-      if(this.postInfo['likes'] === undefined)
-        Vue.set(this.postInfo, 'likes', [])
+	  data.forEach( d => {
+      	    Vue.set(this.postInfo, d.key, d.val())
+      	  })
+      	  if(this.postInfo.length === 0)
+      	    this.$router.replace('/')
+      	  if(this.postInfo['comments'] === undefined)
+      	    Vue.set(this.postInfo, 'comments', [])
+	  if(this.postInfo['likes'] === undefined)
+      	    Vue.set(this.postInfo, 'likes', [])
+	  if(this.postInfo['views'] === undefined)
+      	    Vue.set(this.postInfo, 'views', [])
+	  firebase.auth().onAuthStateChanged( this.userChangeHandler )
       })
     },
     data() {
       return { 
         postInfo: {},
-        newComment: ''
+        newComment: '',
+	currentUserUUID: '',
+	currentUserName: '',
+	currentUserRole: '',
+	canLike: false,
+	loaded: false
       }
     },
     methods: {
       addComment: function() {
         this.postInfo.comments.push({
-      author_uuid: 0,
-      contents: this.newComment,
-      created_at: Math.floor(Date.now() / 1000)
+	  author_name: this.currentUserName.split(' ')[0],
+	  author_uuid: this.currentUserUUID,
+      	  contents: this.newComment,
+      	  created_at: Math.floor(Date.now() / 1000)
         })
-        db.ref('/posts/'+this.$route.params.postKey+'/comments').set(this.postInfo.comments)
-        this.newComment = ''
+        db.ref('/posts/'+this.$route.params.postKey+'/comments').set(this.postInfo.comments);
+        db.ref('/posts/'+this.$route.params.postKey+'/numComments').set(this.postInfo.comments.length);
+        this.newComment = '';
+      },
+      deleteComment: function(idx) {
+	this.postInfo.comments.splice(idx, 1);
+	db.ref('/posts/'+this.$route.params.postKey+'/comments').set(this.postInfo.comments);
+	db.ref('/posts/'+this.$route.params.postKey+'/numComments').set(this.postInfo.comments.length);
       },
       like: function() {
-        db.ref('/posts/'+this.$route.params.postKey+'/likes').transaction( clicks => { return clicks + 1 })
+	this.postInfo.likes.push(this.currentUserUUID)
+	db.ref('/posts/'+this.$route.params.postKey+'/likes').set(this.postInfo.likes)
+	db.ref('/posts/'+this.$route.params.postKey+'/numLikes').set(this.postInfo.likes.length)
+	Vue.set(this, 'canLike', false)
       },
-      alreadyLiked: function() {
-        return true // (uuid in postInfo.likes)
+      unlike: function() {
+	this.postInfo.likes.splice(this.postInfo.likes.indexOf(this.currentUserUUID), 1);
+	db.ref('/posts/'+this.$route.params.postKey+'/likes').set(this.postInfo.likes)
+	Vue.set(this, 'canLike', true)
+      },
+      userChangeHandler: function(user) {
+	this.loaded = true
+	if(user) {
+	  Vue.set(this, 'currentUserUUID', user.uid);
+	  Vue.set(this, 'currentUserName', user.displayName.split(' ')[0]);
+	  db.ref('/users/'+this.currentUserUUID+'/role').once('value').then(data => {
+	    Vue.set(this, 'currentUserRole', data.val()); 
+	  })
+	  Vue.set(this, 'canLike', this.postInfo.likes.indexOf(this.currentUserUUID) < 0);
+	  if(this.postInfo.views.indexOf(this.currentUserUUID) < 0) {
+	    this.postInfo.views.push(this.currentUserUUID);
+	    db.ref('/posts/'+this.$route.params.postKey+'/views').set(this.postInfo.views)
+	    db.ref('/posts/'+this.$route.params.postKey+'/numViews').set(this.postInfo.views.length)
+	  }
+	} else {
+	  Vue.set(this, 'currentUserUUID', '');
+	  Vue.set(this, 'currentUserName', 'Guest');
+	  Vue.set(this, 'currentUserRole', 'guest');
+	  Vue.set(this, 'canLike', false);
+	}
+      },
+      prettify: function(timestamp) {
+	return (new Date(timestamp*1000).toLocaleString())
       }
     }
   }
@@ -87,6 +140,7 @@
 
   #post-viewer-title, #post-viewer-body {
     padding-left: 1%;
+    overflow: hidden;
   }
 
   button {

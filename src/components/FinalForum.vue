@@ -2,17 +2,23 @@
   <div id='final-forum'>
     <div id='forum-header'>
       <button class='blue-button' v-on:click='update("updated_at")'> Latest </button>
-      <button class='blue-button' v-on:click='update("likes")'> Likes </button>
-      <button class='blue-button' v-on:click='update("views")'> Views </button>
+      <button class='blue-button' v-on:click='update("numLikes")'> Likes </button>
+      <button class='blue-button' v-on:click='update("numViews")'> Views </button>
+      <button class='blue-button' v-on:click='update("numComments")'> HOT </button>
       <button class='blue-button' v-on:click='addPost' v-if='loggedIn'> New Post </button>
     </div>
     <div id='forum-posts'>
-      <div class='forum-post' v-for='post in postsInThisPage'> 
+      <div class='forum-post' v-for='(post, idx) in postsInThisPage' v-if='post.visible'> 
         <div class='grey-block' v-on:click='$router.push("/forum/view_post/"+post.key)'>
           <h3> {{post.title}} </h3>
-          <p> {{post.likes}}  <i class="fa fa-heart"></i> <p>
-          <p> {{post.views}}  <i class="fa fa-search"></i></p>
+	  <span v-on:click.stop='deletePost(idx)' v-if='currentUserRole === "admin" || currentUserUUID === post.author_uuid'> 
+	        <i class='fa fa-ban'></i>
+	  </span>
+          <p> {{post.likes === undefined ? 0 : post.likes.length }}  <i class="fa fa-heart"></i> <p>
+          <p> {{post.views === undefined ? 0 : post.views.length }}  <i class="fa fa-search"></i></p>
+          <p> {{post.comments === undefined ? 0 : post.comments.length }}  <i class="fa fa-comments"></i></p>
         </div>
+
       </div>
       <div id="position">
         <button class='blue-button' v-on:click='page = page-1' v-if='page > 1'> prev </button>
@@ -37,7 +43,7 @@
         var ret = []
         var startingIdx = (this.page-1)*this.limit
         for(var idx = startingIdx ; idx < Math.min(startingIdx+this.limit, this.posts.length) ; idx ++)
-      ret.push(this.posts[idx])
+      	  ret.push(this.posts[idx])
         return ret
       },
       maxPage: function() {
@@ -53,39 +59,53 @@
         page: 1,
         limit: 5,
         posts: [],
-        loggedIn: false    
+        loggedIn: false,
+	currentUserUUID: '',
+	currentUserRole: ''
       }
     },
     methods: {
       update: function(criteria) {
         Vue.set(this, 'posts', [])
         db.ref('/posts')
-      .orderByChild(criteria)
-      .once('value').then( data => {
-        data.forEach(d => { 
-          if(d.val().visible) { 
-            var that = d.val()
-            that['key'] = d.key
-            this.posts.push(that)
-          }
-        })
-        this.posts = this.posts.reverse()
-      })
+          .orderByChild(criteria)
+          .once('value').then( data => {
+            data.forEach(d => { 
+	      if(d.val().visible) {
+                var that = d.val()
+                that['key'] = d.key
+                this.posts.push(that)
+	      }
+	    })
+	  this.posts = this.posts.reverse()
+	})
       },
       addPost: function() {
         this.$router.push({
-      name: 'post-editor',
-      params: {
-        postInfo: {
-          title: '',
-          html: '',
-          author_uuid: this.uuid
-        }
-      }
+	  name: 'post-editor',
+      	  params: {
+      	    postInfo: {
+      	      title: '',
+      	      html: '',
+      	      author_uuid: this.uuid
+      	    }
+      	  }
         })
+      },
+      deletePost: function(idx) {
+	Vue.set(this.posts[idx], 'visible', false);
+	db.ref('/posts/'+this.posts[idx].key).set(this.posts[idx]);
       },
       userChangeHandler: function(user) {
         this.loggedIn = user != null
+	this.currentUserUUID = user ? user.uid : '';
+	if(user) {
+	  db.ref('/users/'+this.currentUserUUID+'/role').once('value').then(data => {
+	    Vue.set(this, 'currentUserRole', data.val()); 
+	  })
+	} else {
+	  Vue.set(this, 'currentUserRole', 'guest');
+	}
       }
     },
     beforeMount() {
@@ -104,7 +124,6 @@
     min-height: 100%;
     font-family: 'Roboto Slab', serif;
   }
-
   
   #next {
     float: right;
@@ -121,15 +140,12 @@
     background: azure;
     color: black;
   }
-
   
   .forum-post {
     margin: 2%;
     padding: 1%;
     background: #fff;
   }
-
- 
 
   p {
     text-align: right;

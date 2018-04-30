@@ -54,7 +54,13 @@ module.exports = {
   performance: {
     hints: false
   },
-  devtool: '#eval-source-map'
+  devtool: '#eval-source-map',
+  plugins: [
+    new webpack.ProvidePlugin({
+      'window.Quill': 'quill/dist/quill.js',
+      'Quill': 'quill/dist/quill.js'
+    }) 
+  ]
 }
 
 if (process.env.NODE_ENV === 'production') {
@@ -71,6 +77,9 @@ if (process.env.NODE_ENV === 'production') {
     }),
     new webpack.LoaderOptionsPlugin({
       minimize: true
+    }),
+    new webpack.ProvidePlugin({
+      'window.Quill': 'quill'
     })
   ])
 }
