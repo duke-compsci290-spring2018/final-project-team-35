@@ -19,4 +19,5 @@ Separate repository for Final Project to make it easier to share or experiment w
 - References for your data that establishes its authenticity: <br>
   1. https://www.tripadvisor.com/AttractionsNear-g49092-d293634-Duke_University-Durham_North_Carolina.html (World widely used trip website that people use today)<br>
   2. https://sites.duke.edu/admissionsambassadors/files/2017/09/Tour-Guide-Manual-17-18.pdf (Official tour guide made by Duke University) <br>
-- Discuss both the pros and the cons of different framework possibilities you considered and why you made the decision you did (including choosing not to use any framework): <br>We were 
+- Discuss both the pros and the cons of different framework possibilities you considered and why you made the decision you did (including choosing not to use any framework): <br>We were  bebebe
+ 
