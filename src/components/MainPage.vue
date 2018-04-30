@@ -16,9 +16,10 @@
   import {ui, uiConfig, firebase, db} from '../firebase.js'
   import * as firebaseui from 'firebaseui'
 
-  const rootDir = '.'
+  //For Develop
+  //const rootDir = '.'
   // FOR PRODUCTION
-  // const rootDir = '/final-project-team-35'
+  const rootDir = '/final-project-team-35'
 
   const bgUrls = [rootDir+'/src/assets/Duke_01.png', rootDir+'/src/assets/Duke_02.jpeg', rootDir+'/src/assets/Duke_03.jpg', rootDir+'/src/assets/Duke_04.jpg', rootDir+'/src/assets/Duke_05.jpg', rootDir+'/src/assets/Duke_06.jpg']
 
