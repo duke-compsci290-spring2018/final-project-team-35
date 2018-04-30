@@ -13,7 +13,8 @@
           <span v-on:click.stop='deletePost(idx)' v-if='currentUserRole === "admin" || currentUserUUID === post.author_uuid'> 
                 <i id= 'ban' class='fa fa-times'></i>
           </span>
-          <h3> {{post.title}} </h3>
+          <h3> {{post.title}} </h3> 
+          <h5>posted by {{post.author_name}}</h5> 
           <p> {{post.likes === undefined ? 0 : post.likes.length }}  <i class="fa fa-heart"></i> <p>
           <p> {{post.views === undefined ? 0 : post.views.length }}  <i class="fa fa-search"></i></p>
           <p> {{post.comments === undefined ? 0 : post.comments.length }}  <i class="fa fa-comments"></i></p>
@@ -60,8 +61,8 @@
         limit: 5,
         posts: [],
         loggedIn: false,
-	currentUserUUID: '',
-	currentUserRole: ''
+        currentUserUUID: '',
+        currentUserRole: ''
       }
     },
     methods: {
