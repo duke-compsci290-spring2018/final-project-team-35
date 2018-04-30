@@ -1,11 +1,11 @@
 <template>
   <div id='post-viewer' v-if='loaded'>
-    <div id='post-viewer-sidebar'> 
-      <p> Posted by {{ postInfo.author_name }} {{ postInfo.author_role === 'admin' ? '(admin)' : '' }}</p>
-    </div>
     <div id='post-viwer-contents'>
       <div id='post-viewer-title'>
         <h1> {{ postInfo.title }}</h1>
+        <div id='post-viewer-sidebar'> 
+          <p> Posted by {{ postInfo.author_name }} {{ postInfo.author_role === 'admin' ? '(admin)' : '' }}</p>
+        </div>
         <div id='icons'>
           <p> {{ postInfo.likes.length }} <i class="fa fa-heart"></i>&nbsp; &nbsp; <p>
           <p> {{ postInfo.views.length }} <i class="fa fa-search"></i>&nbsp; &nbsp; </p>

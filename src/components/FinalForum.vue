@@ -15,9 +15,11 @@
           </span>
           <h3> {{post.title}} </h3> 
           <h5>posted by {{post.author_name}}</h5> 
-          <p> {{post.likes === undefined ? 0 : post.likes.length }}  <i class="fa fa-heart"></i> <p>
-          <p> {{post.views === undefined ? 0 : post.views.length }}  <i class="fa fa-search"></i></p>
-          <p> {{post.comments === undefined ? 0 : post.comments.length }}  <i class="fa fa-comments"></i></p>
+          <div class='icons'>
+            <span> {{post.likes === undefined ? 0 : post.likes.length }} <i class="fa fa-heart"></i>&nbsp;&nbsp; </span>
+            <span> {{post.views === undefined ? 0 : post.views.length }}  <i class="fa fa-search"></i>&nbsp;&nbsp; </span>
+            <span> {{post.comments === undefined ? 0 : post.comments.length }}  <i   class="fa fa-comments"></i></span>
+          </div>
         </div>
 
       </div>
@@ -58,7 +60,7 @@
       return {
         searchFor: '',
         page: 1,
-        limit: 5,
+        limit: 4,
         posts: [],
         loggedIn: false,
         currentUserUUID: '',
@@ -135,6 +137,10 @@
     color: grey;
   }
   
+  h3 {
+    margin-top: 1%;
+  }
+  
   #ban {
     float: right;
     font-size: 18px;
@@ -158,9 +164,6 @@
     background: #fff;
   }
 
-  p {
-    text-align: right;
-  }
 
   i {
     color: firebrick;
@@ -170,5 +173,9 @@
     text-align: center;
     padding: 2%;
   }
-    
+  
+  #icons {
+    display: inline-block;
+  }
+  
 </style>
