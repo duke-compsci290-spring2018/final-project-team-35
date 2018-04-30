@@ -9,7 +9,7 @@
 </template>
 
 <script>
-  import Vue from 'vue'
+  import Vue from 'vue' 
   import {ui, uiConfig, firebase, db} from '../firebase.js'
   import * as firebaseui from 'firebaseui'
 
