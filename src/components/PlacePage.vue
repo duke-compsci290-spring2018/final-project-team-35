@@ -1,21 +1,38 @@
 <template>
   <div id = 'places'> 
     <div id='category-selector'>
-      <div class='checkbox-header'>
-        <div class="choiceCart"><h3>Your Choices</h3>
-            <div class="shoppingCart" v-for="list in cart">
-                <li class="list">{{list.name}} <button type="button" class="btn btn-danger" v-on:click="remove_cart(list), makeLocation()" v-show="yes">Remove</button></li>
+      <ul class='list-group big-items'>
+        <li class='list-inline-item list-group-item big-item'>
+          <div class='checkbox-header'>
+            <div class="choiceCart">
+              <h3>Your Choices</h3>
+              <ul class="list-group shoppingCart" >
+                  <li class="list list-group-item" v-for="list in cart">
+                    <span> {{list.name}}</span>
+                    <button type="button" class="btn btn-danger btn-sm removeButton" v-on:click="remove_cart(list), makeLocation()" v-show="yes">Remove</button></li>
+              </ul>
+              <div id='control'>
+                <button v-on:click="yes=false, makeLocation()" class="generateBtn" v-if="yes">Generate Map</button>
+                <button v-on:click="savePlaces()" class="generateBtn" v-bind:disabled='cart.length === 0'>Save Trip</button>
+              </div>  
             </div>
-              <button v-on:click="yes=false, makeLocation()" class="generateBtn" v-if="yes">Generate Map</button>
-              <button v-on:click="savePlaces()" class="generateBtn">Save Trip</button>
           </div>
-      </div>
-      <div id='myTrips'> 
-	<div class='shoppingCart' v-for='(trip, idx) in myTrips' v-on:click='dumpTrip(trip); makeLocation();'>
-	  <p> {{trip[0] ? (trip[0].name + '..'): ''}} .. {{trip[1] ? (trip[1].name + '..'): ''}} {{trip[2] ? (trip[2].name + '..'): ''}} </p>
-	  <span v-on:click='deleteTrip(idx)'> <i class='fa fa-ban'></i> </span>
-	</div>
-      </div>
+        </li>
+        <li class='list-inline-item list-group-item big-item'>
+          <h3>Saved Trips</h3>
+          <ul id='myTrips' class="list-group"> 
+            <li class="list-group-item" v-for='(trip, idx) in myTrips'>
+              <div class='shoppingCartt' v-on:click='dumpTrip(trip); makeLocation();'>
+                <span class="mini"> {{trip[0] ? (trip[0].name + ' '): ''}} {{trip[1] ? (' & ' + trip[1].name): ''}} 
+                  {{trip[2] ? (' & ' + trip[2].name + ' & ..'): ''}} </span>
+                <span v-on:click='deleteTrip(idx)'> <i class='fa fa-times'></i> </span>
+              </div>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      
+      
       <p id = 'filter' v-if="yes"><span class="glyphicon glyphicon-filter"></span> Location:</p>
       <div class='checkbox' v-if="yes">
         <label class="checkbox-inline"><input type="checkbox" value="" v-on:click="addSelected('West')" checked>West Campus</label>
@@ -34,7 +51,7 @@
                 <button type='button' class='btn btn-primary btn-sm'> {{place.categories2}}</button>
             <h5>{{place.description}}</h5>
             <p><i class="fa fa-map-marker"></i> {{place.address}}</p>
-            <p><button type="button" class="btn btn-danger" v-on:click="add_cart(place)">Add to cart</button></p>
+            <button type="button" class="btn btn-danger addcartBtn" v-on:click="add_cart(place)">Add to cart</button>
           </div>
         </div>
       </div>
@@ -169,25 +186,26 @@ export default {
 </script>
 
 <style scoped>
-  @import url('https://fonts.googleapis.com/css?family=Slabo+30px');
-  
+  @import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
+
   .btn-sm {
     margin-left: 0;
   }
 
   #places{
     margin: 2%;
-    font-family: 'Slabo 30px', serif;
+    font-family: 'Roboto Slab', serif;
+
   }
   .thumbnail{        
     width : 100%;
-    height: 400px;
+    height: 500px;
     overflow: auto;
 }
   
   .thumbnail img {
-    height: auto;
     width: 100%;
+    height: 250px;
     display: block;
   }
   
@@ -196,51 +214,104 @@ export default {
   }
 
   .choiceCart h3{
-    margin: 2%;
-  
+    text-align: center;
   }
 
   .shoppingCart{
-      background-color:antiquewhite;
-      width: 70%;
+      width: 100%;
       color: black;
       font-weight: normal;
-      padding: 0.008%;
-      margin-left: 3%;
-      margin-bottom: 2%;
+  }
+  
+  .shoppingCartt{
+      width: 100%;
+      color: black;
+      font-weight: normal;
+      display: flex;
+      justify-content: space-between;
+  }
+  
+  .fa-times {
+    cursor: pointer;
+    color: red;
+  }
+  
+  .fa-times:hover {
+    color: grey;
+  }
+  
+  
+  .addcartBtn {
+    margin-left:0;
   }
   
   .list{
-      margin: 2%;
-      margin-left: 5%;
+      width: 94%;
+      margin-left: 3%;
+      margin-right: 3%;
+      margin-top: 1%;
       font-size: 100%;
       font-weight: bolder;
       list-style: none;
+      display: flex;
+      flex-flow: row, wrap;
+      justify-content: space-between;
   }    
 
   .generateBtn{
-      background-color: salmon;
-      margin-left: 50%;
-      margin-bottom: 3%;
-      margin-top: 4%;
+    background-color: salmon;
+    float: center;
   }
-
+  
+  .list-inline {
+    height: 100%;
+  }
+  
+  .big-item {
+    height: 100%;
+    width: 48%;
+  }
+  
   #filter {
       color: darkblue;
       border-bottom: solid;
       margin-top: 2%;
   }
 
+  .removeButton {
+    margin-left: 40%;
+  }
+  
+  #control {
+    display: flex;
+    justify-content: center;
+  }
+  
+  #control button {
+    width: 100px;
+  }
+  
+  .big-items {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    justify-content: space-between;
+  }
+  
+  .big-items h3{
+    text-align: center;
+  }
+  
+  button:disabled {
+    background: grey;
+    color: white;
+  }
+  
   #title{
       font-size: 300%;
       font-weight: bolder;
       text-align: center;
-  }    
-
-  .checkbox-header {
-    border: inset;
-    width: 70%;
-  }
+  }  
   
   footer {
     text-align: center;
