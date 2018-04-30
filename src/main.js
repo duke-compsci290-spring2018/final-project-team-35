@@ -12,11 +12,11 @@ Vue.use(VueRouter);
 
 const router = new VueRouter({ 
   routes: [
-    { path: '/final-project-team-35/', component: MainPage },
-    { path: '/final-project-team-35/places', component: PlacePage },
-    { path: '/final-project-team-35/forum', component: FinalForum },
-    { path: '/final-project-team-35/forum/edit_post', name: 'post-editor', component: PostEditor, props: true },
-    { path: '/final-project-team-35/forum/view_post/:postKey', component: PostViewer },
+    { path: '/', component: MainPage },
+    { path: '/places', component: PlacePage },
+    { path: '/forum', component: FinalForum },
+    { path: '/forum/edit_post', name: 'post-editor', component: PostEditor, props: true },
+    { path: '/forum/view_post/:postKey', component: PostViewer },
     { path: '*', component: MainPage }
   ]
 });
