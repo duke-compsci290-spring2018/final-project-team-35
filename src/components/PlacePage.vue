@@ -89,10 +89,7 @@
 <script>
 import Vue from 'vue'
 import {firebase, db} from '../firebase.js'
-<<<<<<< HEAD
 
-=======
->>>>>>> 37bd6705fbcb2769c9409eae0a3bf97df42a766b
 var placesJSON = require('../assets/places.json');
 export default {
   name: 'place-page',

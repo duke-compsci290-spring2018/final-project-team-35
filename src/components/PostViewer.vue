@@ -38,10 +38,7 @@
 <script>
   import Vue from 'vue'
   import {firebase, db} from '../firebase.js'
-<<<<<<< HEAD
 
-=======
->>>>>>> 37bd6705fbcb2769c9409eae0a3bf97df42a766b
   export default {
     name: 'post-viewer',
     beforeMount() {
@@ -177,8 +174,5 @@
   }
   
   
-<<<<<<< HEAD
+
 </style>
-=======
-</style>
->>>>>>> 37bd6705fbcb2769c9409eae0a3bf97df42a766b

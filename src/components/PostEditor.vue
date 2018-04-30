@@ -65,10 +65,7 @@
     methods: {
       addPost: function() {
         var pi = this.postInfo
-<<<<<<< HEAD
 
-=======
->>>>>>> 37bd6705fbcb2769c9409eae0a3bf97df42a766b
         var curTime = Math.floor(Date.now() / 1000) 
         if(pi['created_at'] === undefined)
         pi['created_at'] = curTime
@@ -77,21 +74,15 @@
         pi['views'] = pi['likes'] = []
         pi['numViews'] = pi['numLikes'] = pi['numComments'] = 0
         pi['author_uuid'] = this.currentUserUUID
-	pi['author_name'] = this.currentUserName
+	    pi['author_name'] = this.currentUserName
         pi['author_role'] = this.currentUserRole
         pi['comments'] = []
-<<<<<<< HEAD
 
-=======
->>>>>>> 37bd6705fbcb2769c9409eae0a3bf97df42a766b
         var ref = null
         if(pi['key'] === undefined) ref = db.ref('/posts').push()
         else ref = db.ref('/posts/'+pi['key'])
         delete pi['key']
-<<<<<<< HEAD
 
-=======
->>>>>>> 37bd6705fbcb2769c9409eae0a3bf97df42a766b
         ref.set(pi)
       },
       userChangeHandler: function(user) {
@@ -108,10 +99,6 @@
       }
     }
   }
-<<<<<<< HEAD
-
-=======
->>>>>>> 37bd6705fbcb2769c9409eae0a3bf97df42a766b
 </script>
 
 <style scoped>
